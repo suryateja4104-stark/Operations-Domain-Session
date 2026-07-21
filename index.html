@@ -414,15 +414,15 @@
   .flow-car-track { position: relative; height: 16px; margin-bottom: 2px; }
   .flow-car { position: absolute; top: 0; left: 0; width: 18px; height: 18px; color: var(--text); animation: flowDrive linear infinite; }
   @keyframes flowDrive { from { left: 0%; transform: translateX(0); } to { left: 100%; transform: translateX(-100%); } }
-  .flow-bar { display: flex; width: 100%; height: 36px; border-radius: 4px; overflow: hidden; border: 1px solid var(--line-strong); }
+  .flow-bar { display: flex; width: 100%; height: 40px; border-radius: 4px; overflow: hidden; border: 1px solid var(--line-strong); }
   .flow-seg { position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 2px; cursor: default; transition: filter .2s ease; padding: 2px 4px; box-sizing: border-box; }
   .flow-seg:hover { filter: brightness(1.06); }
   .flow-seg.logistics { background: repeating-linear-gradient(135deg,#B8CBDE 0 10px,#AFC4D9 10px 20px); }
   .flow-seg.process { background: repeating-linear-gradient(135deg,#6FA87F 0 10px,#5F9970 10px 20px); }
   .flow-seg.queue { background: repeating-linear-gradient(135deg,#E39C90 0 8px,#D98A7C 8px 16px); }
-  .flow-seg span { font-size: 7.5px; color: #fff; font-family: 'IBM Plex Mono', monospace; text-shadow: 0 1px 1px rgba(0,0,0,0.25); padding: 0 2px; white-space: nowrap; overflow: hidden; }
+  .flow-seg span { font-size: 8px; color: #fff; font-family: 'IBM Plex Mono', monospace; text-shadow: 0 1px 1px rgba(0,0,0,0.25); padding: 0 2px; white-space: nowrap; overflow: hidden; }
   .flow-milestones { display: flex; width: 100%; margin-top: 4px; }
-  .flow-ms { font-size: 7.5px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.01em; position: relative; padding-top: 4px; text-align: center; }
+  .flow-ms { font-size: 7.5px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.01em; position: relative; padding-top: 4px; text-align: center; word-break: break-word; }
   .flow-ms::before { content: ''; position: absolute; top: 0; left: 50%; width: 1px; height: 3px; background: var(--line-strong); }
   .flow-legend { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
   .flow-legend .lg { display: flex; align-items: center; gap: 4px; font-size: 8.5px; color: var(--text-dim); }
@@ -825,9 +825,11 @@
       height: 160px !important;
     }
 
-    /* Vehicle journey timeline – ensure flow bar visible */
-    .flow-bar { height: 18px !important; border-radius: 3px; }
-    .flow-seg { min-width: 28px; }
+    /* Vehicle journey timeline — large, readable on mobile */
+    .flow-bar { height: 52px !important; border-radius: 4px; }
+    .flow-seg span { font-size: 9px !important; white-space: normal; text-align: center; line-height: 1.2; }
+    .flow-ms { font-size: 8px !important; }
+    .timeline-card { min-height: 180px; }
   }
 </style>
 </head>
@@ -896,25 +898,25 @@
       </div>
 
       <!-- Vehicle Journey Timeline (Compact, top-aligned) -->
-      <div class="dash-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 10px 12px;">
-        <div class="pulse-rail-head" style="margin-bottom: 2px;">
+      <div class="dash-card timeline-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 10px 12px;">
+        <div class="pulse-rail-head" style="margin-bottom: 4px;">
           <span class="pulse-label">Vehicle Journey Timeline</span>
-          <span class="pulse-value" style="font-size: 11px; font-weight: 700; color: var(--orange);">Total Lead Time: <span id="timelineTotalTime" class="mono">15.08</span> min</span>
+          <span class="pulse-value" style="font-size: 11px; font-weight: 700; color: var(--orange);">Total: <span id="timelineTotalTime" class="mono">15.08</span> min</span>
         </div>
-        <div class="flow-wrap" style="margin-top: 1px;">
-          <div class="flow-car-track" style="height: 12px; margin-bottom: 1px; overflow: visible;">
-            <svg class="flow-car" id="flowCar" viewBox="0 0 30 22" fill="currentColor" style="width: 14px; height: 14px;">
+        <div class="flow-wrap" style="margin-top: 2px;">
+          <div class="flow-car-track" style="height: 14px; margin-bottom: 2px; overflow: visible;">
+            <svg class="flow-car" id="flowCar" viewBox="0 0 30 22" fill="currentColor" style="width: 16px; height: 16px;">
               <path d="M1 14 L3 7 Q5 3 13 3 L20 3 Q26 3 28 7 L29 14 L29 18 L1 18 Z"/>
               <circle cx="7" cy="18" r="3.4" fill="var(--bg-panel)" stroke="currentColor" stroke-width="1.5"/>
               <circle cx="23" cy="18" r="3.4" fill="var(--bg-panel)" stroke="currentColor" stroke-width="1.5"/>
             </svg>
           </div>
-          <div class="flow-bar" id="flowBar" style="height: 10px; border-radius: 2px;"></div>
-          <div class="flow-milestones" id="flowMilestones" style="margin-top: 1px; line-height: 1.1;"></div>
-          <div class="flow-legend" style="margin-top: 3px; display: flex; gap: 8px; font-size: 8px; justify-content: center;">
-            <div class="lg" style="display:flex; align-items:center; gap:2px;"><span class="sw logistics" style="width:6px; height:6px;"></span>Out</div>
-            <div class="lg" style="display:flex; align-items:center; gap:2px;"><span class="sw process" style="width:6px; height:6px;"></span>Proc</div>
-            <div class="lg" style="display:flex; align-items:center; gap:2px;"><span class="sw queue" style="width:6px; height:6px;"></span>Queue</div>
+          <div class="flow-bar" id="flowBar"></div>
+          <div class="flow-milestones" id="flowMilestones" style="margin-top: 2px; line-height: 1.2;"></div>
+          <div class="flow-legend" style="margin-top: 5px; display: flex; gap: 10px; font-size: 9px; justify-content: center; flex-wrap: wrap;">
+            <div class="lg" style="display:flex; align-items:center; gap:3px;"><span class="sw logistics" style="width:8px; height:8px;"></span>Logistics</div>
+            <div class="lg" style="display:flex; align-items:center; gap:3px;"><span class="sw process" style="width:8px; height:8px;"></span>Process</div>
+            <div class="lg" style="display:flex; align-items:center; gap:3px;"><span class="sw queue" style="width:8px; height:8px;"></span>Queue</div>
           </div>
         </div>
       </div>
@@ -2041,18 +2043,23 @@ function drawFlow(leadTotal){
   const queueTotal = queues.reduce((a,q)=>a+q,0);
   const mfgLead = processTotal + queueTotal;
 
-  const msData = [
-    { name: 'Order Placed', time: 0 },
-    { name: 'Plant Gate', time: orderProcessing },
-    { name: 'Line Start', time: orderProcessing },
-    { name: 'Vehicle Complete', time: orderProcessing + mfgLead },
-    { name: 'Shipped', time: orderProcessing + mfgLead },
-    { name: 'Delivered', time: leadTotal }
+  // On mobile, collapse to 3 key milestones to prevent crowding
+  const isMobile = window.innerWidth < 700;
+  const msData = isMobile ? [
+    { name: 'Order', time: 0, w: 25 },
+    { name: 'Built', time: orderProcessing + mfgLead, w: 45 },
+    { name: 'Delivered', time: leadTotal, w: 30 }
+  ] : [
+    { name: 'Order Placed', time: 0, w: 8 },
+    { name: 'Plant Gate', time: orderProcessing, w: 8 },
+    { name: 'Line Start', time: orderProcessing, w: 20 },
+    { name: 'Vehicle Complete', time: orderProcessing + mfgLead, w: 20 },
+    { name: 'Shipped', time: orderProcessing + mfgLead, w: 22 },
+    { name: 'Delivered', time: leadTotal, w: 22 }
   ];
-  const msWidths = [8,8,20,20,22,22];
-  
-  flowMilestones.innerHTML = msData.map((ms, i) => {
-    return `<div class="flow-ms" style="width:${msWidths[i]}%">${ms.name}<br><span style="font-family:'IBM Plex Mono',monospace; font-size:8px; font-weight:700; opacity:0.85; display:block; margin-top:1px; color:var(--text);">${ms.time.toFixed(2)}m</span></div>`;
+
+  flowMilestones.innerHTML = msData.map((ms) => {
+    return `<div class="flow-ms" style="width:${ms.w}%">${ms.name}<br><span style="font-family:'IBM Plex Mono',monospace; font-size:${isMobile?'9':'8'}px; font-weight:700; opacity:0.85; display:block; margin-top:1px; color:var(--text);">${ms.time.toFixed(1)}m</span></div>`;
   }).join('');
 
   const dur = Math.max(4, Math.min(10, (leadTotal * 60)/90));
