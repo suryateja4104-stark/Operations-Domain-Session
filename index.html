@@ -695,13 +695,13 @@
   .reveal-stagger.in-view .r-item:nth-child(5) { transition-delay: 300ms; }
   .reveal-stagger.in-view .r-item:nth-child(7) { transition-delay: 450ms; }
   .reveal-stagger.in-view .r-item:nth-child(9) { transition-delay: 600ms; }
-  /* ---------- MOBILE RESPONSIVENESS AND OPTIMIZATIONS ---------- */
+  /* ---------- TABLET / LANDSCAPE PHONE ---------- */
   @media (max-width: 900px) {
     .header-flex {
       height: auto;
       flex-direction: column;
       padding: 10px 16px;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
     }
     .tab-nav {
@@ -715,32 +715,73 @@
       font-size: 13.5px;
       height: 32px;
     }
+    /* Tab 1 – Controls / EKG / Timeline row */
     .dash-top-row {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr !important;
       gap: 12px;
     }
+    /* Tab 1 – Bottom grid (Chart + Nesting) */
     .dash-bottom-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr !important;
       gap: 12px;
     }
-    /* Tab 3 grid columns override */
-    #production-systems div[style*="grid-template-columns"] {
+    /* Tab 1 – CVP section two-column */
+    .cvp-grid {
+      grid-template-columns: 1fr !important;
+    }
+    /* Tab 2 – Intro two-column layout */
+    .intro-main-grid {
+      grid-template-columns: 1fr !important;
+    }
+    /* Tab 3 – any inline grid */
+    #production-systems [style*="grid-template-columns"] {
       grid-template-columns: 1fr !important;
       gap: 16px !important;
     }
-    /* Tab 4 grid columns override */
+    /* Tab 4 – comparison cards */
     #comparisonCardsGrid {
       grid-template-columns: 1fr !important;
       gap: 16px !important;
     }
+    /* Simulator – scroll horizontally */
+    .simulator-card {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .line-rail {
+      min-width: 600px;
+    }
+    /* Chart flex – stack vertically */
+    .chart-flex-container {
+      flex-direction: column !important;
+    }
+    /* Time nesting – ensure visible padding */
+    .nest {
+      padding: 8px !important;
+    }
+    /* Buffer belt – ensure min visible height */
+    .buffer-belt {
+      min-height: 28px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start !important;
+    }
   }
 
+  /* ---------- PORTRAIT MOBILE ---------- */
   @media (max-width: 600px) {
     .wrap {
-      padding: 0 12px;
+      padding: 0 10px;
     }
     .workspace {
       padding: 6px 8px;
+    }
+    .brand {
+      font-size: 18px;
+    }
+    .nav-tab {
+      font-size: 12px;
+      padding: 4px 8px;
     }
     .dash-title-row {
       flex-direction: column;
@@ -750,18 +791,43 @@
     .takt-status {
       align-self: flex-start;
     }
-    .brand {
-      font-size: 18px;
-    }
-    .nav-tab {
-      font-size: 12px;
-      padding: 4px 8px;
-    }
+    /* Scrollable comparison table */
     .table-container {
       overflow-x: auto;
       width: 100%;
       -webkit-overflow-scrolling: touch;
     }
+    /* Time Nesting: make labels readable */
+    .nest-label { flex-direction: column; gap: 2px; }
+    .nest-label .n-name { font-size: 10px; }
+    .nest-label .n-time { font-size: 11px; }
+
+    /* Buffer belt: ensure it doesn't vanish */
+    .buffer-belt {
+      min-height: 32px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      justify-content: flex-start !important;
+      animation: none; /* stop belt animation jitter on mobile */
+    }
+    .buffer-car {
+      width: 14px !important;
+      height: 10px !important;
+    }
+
+    /* CVP formula box: font size readable */
+    .cvp-formula-box p {
+      font-size: 12px !important;
+    }
+
+    /* Profitability image: give it a min height */
+    .profitability-img-wrap {
+      height: 160px !important;
+    }
+
+    /* Vehicle journey timeline – ensure flow bar visible */
+    .flow-bar { height: 18px !important; border-radius: 3px; }
+    .flow-seg { min-width: 28px; }
   }
 </style>
 </head>
@@ -963,7 +1029,7 @@
     </header>
 
     <!-- Top Grid: Interactive Sliders & Real-Time Profit Chart -->
-    <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 10px;">
+    <div class="cvp-grid" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 10px;">
       <!-- Left: CVP Sliders -->
       <div class="dash-card" style="padding: 10px 12px; display: flex; flex-direction: column; justify-content: space-between;">
         <div>
@@ -1050,7 +1116,7 @@
 
   <!-- Scroll-down explanatory section -->
   <div class="info-section reveal">
-    <div class="wrap info-grid" style="display: grid; grid-template-columns: 1.45fr 0.55fr; gap: 24px;">
+    <div class="wrap info-grid intro-main-grid" style="display: grid; grid-template-columns: 1.45fr 0.55fr; gap: 24px;">
       <!-- Column 1: What is Operations -->
       <div>
         <h2 style="font-family:'Big Shoulders Display',sans-serif; text-transform:uppercase; font-size:26px; margin: 0 0 10px;">What is Operations?</h2>
@@ -1109,12 +1175,12 @@
         <!-- Profitability relevance static flowchart image -->
         <div class="dash-card" style="padding: 10px; background:var(--bg-panel); border:1px solid var(--line); margin-bottom:16px;">
           <h4 class="card-title" style="margin-bottom:6px; font-size:11px;">Profitability Relevance Structure</h4>
-          <div style="height: 140px; border-radius: 4px; overflow: hidden; border: 1px solid var(--line);">
+          <div class="profitability-img-wrap" style="height: 140px; border-radius: 4px; overflow: hidden; border: 1px solid var(--line);">
             <img src="profitability_relevance_flowchart.png" style="width: 100%; height: 100%; object-fit: cover;" alt="CVP Profitability Flowchart Reference">
           </div>
         </div>
         
-        <div style="background:var(--bg-panel-2); border:1px solid var(--line-strong); border-radius:4px; padding:12px;">
+        <div class="cvp-formula-box" style="background:var(--bg-panel-2); border:1px solid var(--line-strong); border-radius:4px; padding:12px;">
           <h4 style="font-family:'Big Shoulders Display',sans-serif; font-size:14px; font-weight:800; margin:0 0 6px 0; text-transform:uppercase;">The CVP Relationship Formula</h4>
           <p style="font-family:'IBM Plex Mono', monospace; font-size:11.5px; line-height:1.45; color:var(--text-dim); margin:0;">
             Profit = (Price - Variable Cost) × Volume - Fixed Costs
