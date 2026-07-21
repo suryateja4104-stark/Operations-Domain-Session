@@ -415,7 +415,7 @@
   .flow-car { position: absolute; top: 0; left: 0; width: 18px; height: 18px; color: var(--text); animation: flowDrive linear infinite; }
   @keyframes flowDrive { from { left: 0%; transform: translateX(0); } to { left: 100%; transform: translateX(-100%); } }
   .flow-bar { display: flex; width: 100%; height: 40px; border-radius: 4px; overflow: hidden; border: 1px solid var(--line-strong); }
-  .flow-seg { position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 2px; cursor: default; transition: filter .2s ease; padding: 2px 4px; box-sizing: border-box; }
+  .flow-seg { position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 2px; cursor: default; transition: filter .2s ease; padding: 2px 4px; box-sizing: border-box; overflow: hidden; }
   .flow-seg:hover { filter: brightness(1.06); }
   .flow-seg.logistics { background: repeating-linear-gradient(135deg,#B8CBDE 0 10px,#AFC4D9 10px 20px); }
   .flow-seg.process { background: repeating-linear-gradient(135deg,#6FA87F 0 10px,#5F9970 10px 20px); }
@@ -827,7 +827,7 @@
 
     /* Vehicle journey timeline — large, readable on mobile */
     .flow-bar { height: 52px !important; border-radius: 4px; }
-    .flow-seg span { font-size: 9px !important; white-space: normal; text-align: center; line-height: 1.2; }
+    .flow-seg span { font-size: 9px !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis; max-width: 100%; }
     .flow-ms { font-size: 8px !important; }
     .timeline-card { min-height: 180px; }
   }
@@ -2026,15 +2026,25 @@ function drawFlow(leadTotal){
 
   flowBar.innerHTML = segs.map(s=>{
     const pct = (s.dur/leadTotal*100).toFixed(2);
-    // Display labels and durations inside timeline segments
+    const isMobile = window.innerWidth < 700;
+    // Shorter labels for mobile to fit in narrow segments
     let displayName = s.label;
-    if (s.label === 'Order Processing') displayName = 'Order Proc';
-    if (s.label === 'Outbound Shipping') displayName = 'Shipping';
-    if (s.label === 'Queue') displayName = 'Q';
+    if (isMobile) {
+      if (s.label === 'Order Processing') displayName = 'Ord';
+      else if (s.label === 'Outbound Shipping') displayName = 'Ship';
+      else if (s.label === 'Queue') displayName = 'Q';
+      else displayName = s.label.split(' ')[0].substring(0, 5);
+    } else {
+      if (s.label === 'Order Processing') displayName = 'Order Proc';
+      if (s.label === 'Outbound Shipping') displayName = 'Shipping';
+      if (s.label === 'Queue') displayName = 'Q';
+    }
 
-    const textToShow = pct > 4 ? `
-      <span style="font-size: 9px; font-weight: 700; color: #FFF; text-shadow: 0 1px 1px rgba(0,0,0,0.3); text-transform: uppercase; letter-spacing: 0.02em;">${displayName}</span>
-      <span style="font-family:'IBM Plex Mono',monospace; font-size: 8.5px; font-weight: 800; color: #FFF; opacity: 0.95; margin-top: 1px;">${s.dur.toFixed(2)}m</span>
+    // On mobile raise threshold — only show text if segment is wide enough
+    const textThreshold = isMobile ? 14 : 4;
+    const textToShow = pct > textThreshold ? `
+      <span style="font-size: ${isMobile?'9':'9'}px; font-weight: 700; color: #FFF; text-shadow: 0 1px 1px rgba(0,0,0,0.3); text-transform: uppercase; letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; display: block; max-width: 100%;">${displayName}</span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size: ${isMobile?'8':'8.5'}px; font-weight: 800; color: #FFF; opacity: 0.95; margin-top: 1px; display: block;">${s.dur.toFixed(1)}m</span>
     ` : '';
     return `<div class="flow-seg ${s.type}" style="width:${pct}%" title="${s.label}: ${s.dur.toFixed(2)} min">${textToShow}</div>`;
   }).join('');
