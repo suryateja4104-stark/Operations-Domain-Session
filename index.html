@@ -1082,41 +1082,41 @@
       </div>
 
       <!-- Right: Real-time Economic Flow Node -->
-      <div class="dash-card" style="padding: 10px 12px; display: flex; flex-direction: column; justify-content: space-between;">
-        <h3 class="card-title" style="margin-bottom: 4px; padding-bottom: 2px;">Economic Transformation Flow</h3>
-        <svg id="profitFlowSvg" viewBox="0 0 320 230" style="width: 100%; display: block; overflow: visible; height: 162px;">
+      <div class="dash-card" style="padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between;">
+        <h3 class="card-title" style="margin-bottom: 8px; padding-bottom: 2px;">Economic Transformation Flow</h3>
+        <svg id="profitFlowSvg" viewBox="0 0 400 260" style="width: 100%; display: block; overflow: visible; height: 260px;">
           <!-- Marketing Node -->
-          <rect x="10" y="5" width="120" height="48" rx="4" fill="var(--bg-panel-2)" stroke="var(--line-strong)" stroke-width="1.5" />
-          <path d="M 22 22 L 32 22 L 36 17 L 36 29 L 32 25 L 22 25 Z" fill="none" stroke="var(--blueprint)" stroke-width="1.2" />
-          <text x="80" y="24" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="11px" text-anchor="middle" fill="var(--text)">MARKETING</text>
-          <text x="80" y="37" font-family="'IBM Plex Sans', sans-serif" font-size="8.5px" text-anchor="middle" fill="var(--text-faint)">sets the price</text>
+          <rect x="15" y="10" width="160" height="60" rx="5" fill="var(--bg-panel-2)" stroke="var(--line-strong)" stroke-width="1.5" />
+          <path d="M 27 34 L 37 34 L 41 29 L 41 41 L 37 37 L 27 37 Z" fill="none" stroke="var(--blueprint)" stroke-width="1.5" />
+          <text x="105" y="33" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="16px" text-anchor="middle" fill="var(--text)" letter-spacing="0.04em">MARKETING</text>
+          <text x="105" y="49" font-family="'IBM Plex Sans', sans-serif" font-size="11px" text-anchor="middle" fill="var(--text-faint)">sets the price</text>
 
           <!-- Operations Node -->
-          <rect x="190" y="5" width="120" height="48" rx="4" fill="var(--bg-panel-2)" stroke="var(--line-strong)" stroke-width="1.5" />
-          <path d="M 202 22 A 3 3 0 0 1 206 26 L 211 31 L 208 34 L 204 29 A 3 3 0 0 1 202 22 Z" fill="none" stroke="var(--green)" stroke-width="1.2" />
-          <text x="250" y="24" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="11px" text-anchor="middle" fill="var(--text)">OPERATIONS</text>
-          <text x="250" y="37" font-family="'IBM Plex Sans', sans-serif" font-size="8.5px" text-anchor="middle" fill="var(--text-faint)">keeps costs low</text>
+          <rect x="225" y="10" width="160" height="60" rx="5" fill="var(--bg-panel-2)" stroke="var(--line-strong)" stroke-width="1.5" />
+          <path d="M 237 34 A 3 3 0 0 1 241 38 L 246 43 L 243 46 L 239 41 A 3 3 0 0 1 237 34 Z" fill="none" stroke="var(--green)" stroke-width="1.5" />
+          <text x="315" y="33" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="16px" text-anchor="middle" fill="var(--text)" letter-spacing="0.04em">OPERATIONS</text>
+          <text x="315" y="49" font-family="'IBM Plex Sans', sans-serif" font-size="11px" text-anchor="middle" fill="var(--text-faint)">keeps costs low</text>
 
           <!-- Lines to CVP Box -->
-          <path d="M 70 53 L 70 85 L 110 85" fill="none" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="3,3" />
-          <path d="M 250 53 L 250 85 L 210 85" fill="none" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="3,3" />
+          <path d="M 95 70 L 95 110 L 140 110" fill="none" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="3,3" />
+          <path d="M 305 70 L 305 110 L 260 110" fill="none" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="3,3" />
 
           <!-- CVP Box -->
-          <rect x="110" y="70" width="100" height="45" rx="4" fill="var(--bg-panel)" stroke="var(--orange)" stroke-width="1.75" />
-          <text x="160" y="90" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="11.5px" text-anchor="middle" fill="var(--orange)">COST-VOLUME</text>
-          <text x="160" y="103" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="11.5px" text-anchor="middle" fill="var(--orange)">PROFIT (CVP)</text>
+          <rect x="140" y="85" width="120" height="50" rx="5" fill="var(--bg-panel)" stroke="var(--orange)" stroke-width="1.75" />
+          <text x="200" y="107" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="14px" text-anchor="middle" fill="var(--orange)" letter-spacing="0.04em">COST-VOLUME</text>
+          <text x="200" y="123" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="14px" text-anchor="middle" fill="var(--orange)" letter-spacing="0.04em">PROFIT (CVP)</text>
 
           <!-- Line to Profit -->
-          <path d="M 160 115 L 160 150" fill="none" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="3,3" />
-          <polygon points="160,150 157,144 163,144" fill="var(--text-faint)" />
+          <path d="M 200 135 L 200 175" fill="none" stroke="var(--text-faint)" stroke-width="1.2" stroke-dasharray="3,3" />
+          <polygon points="200,175 196,169 204,169" fill="var(--text-faint)" />
 
           <!-- Profit Box -->
-          <rect x="80" y="150" width="160" height="56" rx="4" fill="var(--bg-panel-2)" stroke="var(--line-strong)" stroke-width="1.5" />
-          <text x="160" y="168" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="11.5px" text-anchor="middle" fill="var(--text-dim)">NET PROFIT / LOSS</text>
-          <text x="160" y="192" font-family="'IBM Plex Mono', monospace" font-weight="700" font-size="18px" text-anchor="middle" fill="var(--green)" id="cvpProfitNodeDisplay">$30,000</text>
+          <rect x="100" y="175" width="200" height="70" rx="5" fill="var(--bg-panel-2)" stroke="var(--line-strong)" stroke-width="1.5" />
+          <text x="200" y="198" font-family="'Big Shoulders Display', sans-serif" font-weight="900" font-size="14px" text-anchor="middle" fill="var(--text-dim)" letter-spacing="0.04em">NET PROFIT / LOSS</text>
+          <text x="200" y="230" font-family="'IBM Plex Mono', monospace" font-weight="700" font-size="24px" text-anchor="middle" fill="var(--green)" id="cvpProfitNodeDisplay">$30,000</text>
         </svg>
         <!-- Mini helper note -->
-        <div style="font-family:'IBM Plex Sans',sans-serif; font-size:10px; color:var(--text-faint); text-align:center; border-top:1px solid var(--line); padding-top:4px; margin-top:2px;">
+        <div style="font-family:'IBM Plex Sans',sans-serif; font-size:10.5px; color:var(--text-faint); text-align:center; border-top:1px solid var(--line); padding-top:6px; margin-top:4px;">
           Adjust sliders on the left to see profit output change in real-time.
         </div>
       </div>
