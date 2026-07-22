@@ -482,30 +482,20 @@
   .profit-val.negative { color: var(--rust) !important; }
 
   /* ---------- NEW TAB 3: PRODUCTION SYSTEMS STYLES ---------- */
-  .matrix-bubble {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .matrix-bubble:hover {
-    transform: scale(1.08);
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-  .matrix-bubble {
-    transform-box: fill-box;
-    transform-origin: center;
-    transition: transform 0.2s ease;
-  }
   .matrix-bubble .bubble-circle {
-    transition: fill 0.3s ease, stroke 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), fill 0.3s ease, stroke 0.3s ease, stroke-width 0.3s ease;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .matrix-bubble:hover .bubble-circle {
+    transform: scale(1.1);
+    fill: rgba(46, 92, 138, 0.05);
+    stroke: var(--blueprint);
   }
   .matrix-bubble.active .bubble-circle {
     fill: rgba(226, 87, 28, 0.08);
     stroke: var(--orange);
     stroke-width: 2.5px;
-  }
-  .matrix-bubble:hover .bubble-circle {
-    fill: rgba(46, 92, 138, 0.05);
-    stroke: var(--blueprint);
   }
   .diagonal-arrow-flow {
     animation: flowDashes 2.5s linear infinite;
