@@ -736,6 +736,10 @@
     .cvp-grid {
       grid-template-columns: 1fr !important;
     }
+    .eoq-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
     /* Tab 2 – Intro two-column layout */
     .intro-main-grid {
       grid-template-columns: 1fr !important;
@@ -1697,21 +1701,76 @@
       <div class="kicker"><span class="kicker-num">4</span></div>
       <h2>Economic Order Quantity (EOQ)</h2>
       <p class="lead">The order quantity that minimises total costs of ordering, receiving, and holding inventory.</p>
-      <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;" class="reveal">
-        <div class="dash-card" style="padding:20px;text-align:center;border:1px solid var(--orange);background:rgba(226,87,28,0.04);">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:700;color:var(--orange);">EOQ = √( 2DS / H )</div>
-          <div style="margin-top:10px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-            <span style="font-size:11.5px;color:var(--text-dim);"><b style="color:var(--text);">D</b> = Annual Demand</span>
-            <span style="font-size:11.5px;color:var(--text-dim);"><b style="color:var(--text);">S</b> = Cost per Order</span>
-            <span style="font-size:11.5px;color:var(--text-dim);"><b style="color:var(--text);">H</b> = Annual Holding Cost/Unit</span>
+      
+      <div class="dash-card" style="padding:12px 20px;text-align:center;border:1px solid var(--orange);background:rgba(226,87,28,0.04);margin-bottom:16px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:700;color:var(--orange);">EOQ = √( 2DS / H )</div>
+        <div style="margin-top:6px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <span style="font-size:11px;color:var(--text-dim);"><b style="color:var(--text);">D</b> = Annual Demand</span>
+          <span style="font-size:11px;color:var(--text-dim);"><b style="color:var(--text);">S</b> = Cost per Order</span>
+          <span style="font-size:11px;color:var(--text-dim);"><b style="color:var(--text);">H</b> = Annual Holding Cost/Unit</span>
+        </div>
+      </div>
+
+      <!-- Toggle buttons above the simulator -->
+      <div style="margin-bottom:16px;" class="reveal">
+        <div style="display:flex; gap:8px; align-items:center;">
+          <span style="font-family:'Big Shoulders Display',sans-serif; text-transform:uppercase; font-weight:900; font-size:14px; color:var(--text-dim); margin-right:8px;">Business Context:</span>
+          <button id="eoqPresetCoffee" class="nav-tab active" style="height:30px; font-size:13px; padding:0 12px; border:1px solid var(--orange); border-radius:3px; background:rgba(226,87,28,0.06);">☕ Coffee</button>
+          <button id="eoqPresetBeer" class="nav-tab" style="height:30px; font-size:13px; padding:0 12px; border:1px solid var(--line-strong); border-radius:3px; background:none;">🍺 Beer</button>
+        </div>
+        <div id="eoqContextNote" style="font-size:12.5px; color:var(--orange); margin-top:8px; font-style:italic; border-left:2px solid var(--orange); padding-left:8px; line-height:1.4;">
+          Coffee has short shelf life and quality decay, so holding costs are relatively high — favors smaller, more frequent orders.
+        </div>
+      </div>
+
+      <div class="eoq-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start;" class="reveal">
+        <!-- Controls & Metrics -->
+        <div class="dash-card" style="padding:16px; display:flex; flex-direction:column; gap:16px;">
+          <h3 class="card-title" style="margin-bottom:4px; padding-bottom:2px;">Live Inventory Cost Simulator</h3>
+          
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="control">
+              <label>Annual Demand (D) — Units/Yr</label>
+              <div class="readout"><span id="eoqDemandReadout">24,000</span></div>
+              <input type="range" id="eoqDemand" min="1000" max="100000" step="1000" value="24000">
+            </div>
+            
+            <div class="control">
+              <label>Ordering Cost (S) — Per Order</label>
+              <div class="readout">₹<span id="eoqOrderCostReadout">800</span></div>
+              <input type="range" id="eoqOrderCost" min="100" max="5000" step="50" value="800">
+            </div>
+
+            <div class="control">
+              <label>Holding Cost (H) — Per Unit/Yr</label>
+              <div class="readout">₹<span id="eoqHoldingCostReadout">350</span></div>
+              <input type="range" id="eoqHoldingCost" min="50" max="1000" step="10" value="350">
+            </div>
+
+            <div class="control" style="position:relative;">
+              <label style="color:var(--orange);">Order Quantity (Q)</label>
+              <button id="eoqResetQBtn" style="position:absolute; right:0; top:-2px; background:none; border:1px solid var(--orange); border-radius:3px; padding:1px 6px; font-family:'Big Shoulders Display',sans-serif; font-size:10px; font-weight:800; text-transform:uppercase; cursor:pointer; color:var(--orange); transition:all 0.2s ease;" onmouseover="this.style.background='var(--orange)'; this.style.color='#fff'" onmouseout="this.style.background='none'; this.style.color='var(--orange)'">Reset to EOQ</button>
+              <div class="readout" style="color:var(--orange); font-weight:700;"><span id="eoqQtyReadout">331</span> units</div>
+              <input type="range" id="eoqQty" min="50" max="2000" step="10" value="331">
+            </div>
+          </div>
+
+          <div style="border-top:1px solid var(--line); padding-top:12px; margin-top:4px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div style="background:var(--bg-panel-2); border-radius:4px; padding:8px; text-align:center;">
+              <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;color:var(--text-dim);">Economic Order Qty</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:700;color:var(--orange);margin-top:2px;"><span id="eoqCalcDisplay">331</span></div>
+            </div>
+            <div style="background:var(--bg-panel-2); border-radius:4px; padding:8px; text-align:center;">
+              <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;color:var(--text-dim);">Total Cost at Q</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:700;color:var(--green);margin-top:2px;">₹<span id="eoqCostDisplay">115,920</span></div>
+            </div>
           </div>
         </div>
-        <div class="dash-card" style="padding:14px;">
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
-            <li style="font-size:12.5px;color:var(--text-dim);">Minimises total ordering, receiving, and holding costs</li>
-            <li style="font-size:12.5px;color:var(--text-dim);">Best applied where demand, ordering, and holding costs are <strong style="color:var(--text);">constant over time</strong></li>
-            <li style="font-size:12.5px;color:var(--rust);">⚠️ Limitation: assumes constant demand — not realistic for seasonal goods</li>
-          </ul>
+
+        <!-- SVG Cost Curve Chart -->
+        <div class="dash-card" style="padding:16px; display:flex; flex-direction:column; justify-content:space-between; height:100%;">
+          <h3 class="card-title" style="margin-bottom:8px; padding-bottom:2px;">Cost Curves &amp; Tradeoff</h3>
+          <svg id="eoqChart" viewBox="0 0 350 250" style="width:100%; height:auto; display:block; overflow:visible;"></svg>
         </div>
       </div>
     </div>
@@ -1984,6 +2043,9 @@ tabs.forEach(tab => {
     if (targetPanel === 'time-metrics') {
       const takt = taktMinutes();
       drawPulse(takt);
+    }
+    if (targetPanel === 'inventory-mgmt') {
+      updateEOQ();
     }
   });
 });
@@ -2772,10 +2834,322 @@ const io = new IntersectionObserver((entries)=>{
 
 document.querySelectorAll('.reveal, .reveal-stagger').forEach(el=>io.observe(el));
 
+// ==================== TAB 5: INVENTORY MANAGEMENT LOGIC ====================
+const coffeePreset = {
+  D: { val: 24000, min: 1000, max: 100000, step: 1000 },
+  S: { val: 800, min: 100, max: 5000, step: 50 },
+  H: { val: 350, min: 50, max: 1000, step: 10 },
+  Q: { min: 50, max: 2000, step: 10 },
+  note: "Coffee has short shelf life and quality decay, so holding costs are relatively high — favors smaller, more frequent orders."
+};
+
+const beerPreset = {
+  D: { val: 60000, min: 5000, max: 200000, step: 5000 },
+  S: { val: 3000, min: 500, max: 10000, step: 100 },
+  H: { val: 120, min: 20, max: 500, step: 10 },
+  Q: { min: 100, max: 8000, step: 50 },
+  note: "Beer has more stable shelf life and benefits from bulk logistics, so ordering costs dominate — favors larger, less frequent orders."
+};
+
+function applyPreset(presetName) {
+  const preset = presetName === 'coffee' ? coffeePreset : beerPreset;
+  
+  const coffeeBtn = document.getElementById('eoqPresetCoffee');
+  const beerBtn = document.getElementById('eoqPresetBeer');
+  if (presetName === 'coffee') {
+    coffeeBtn.classList.add('active');
+    coffeeBtn.style.borderColor = 'var(--orange)';
+    coffeeBtn.style.color = 'var(--orange)';
+    coffeeBtn.style.background = 'rgba(226,87,28,0.06)';
+    
+    beerBtn.classList.remove('active');
+    beerBtn.style.borderColor = 'var(--line-strong)';
+    beerBtn.style.color = 'var(--text-dim)';
+    beerBtn.style.background = 'none';
+  } else {
+    beerBtn.classList.add('active');
+    beerBtn.style.borderColor = 'var(--orange)';
+    beerBtn.style.color = 'var(--orange)';
+    beerBtn.style.background = 'rgba(226,87,28,0.06)';
+    
+    coffeeBtn.classList.remove('active');
+    coffeeBtn.style.borderColor = 'var(--line-strong)';
+    coffeeBtn.style.color = 'var(--text-dim)';
+    coffeeBtn.style.background = 'none';
+  }
+  
+  document.getElementById('eoqContextNote').textContent = preset.note;
+  
+  const sliderD = document.getElementById('eoqDemand');
+  sliderD.min = preset.D.min;
+  sliderD.max = preset.D.max;
+  sliderD.step = preset.D.step;
+  sliderD.value = preset.D.val;
+
+  const sliderS = document.getElementById('eoqOrderCost');
+  sliderS.min = preset.S.min;
+  sliderS.max = preset.S.max;
+  sliderS.step = preset.S.step;
+  sliderS.value = preset.S.val;
+
+  const sliderH = document.getElementById('eoqHoldingCost');
+  sliderH.min = preset.H.min;
+  sliderH.max = preset.H.max;
+  sliderH.step = preset.H.step;
+  sliderH.value = preset.H.val;
+
+  const sliderQ = document.getElementById('eoqQty');
+  sliderQ.min = preset.Q.min;
+  sliderQ.max = preset.Q.max;
+  sliderQ.step = preset.Q.step;
+
+  const defaultEOQ = Math.round(Math.sqrt((2 * preset.D.val * preset.S.val) / preset.H.val));
+  sliderQ.value = defaultEOQ;
+
+  updateEOQ();
+}
+
+function updateEOQ() {
+  const D = +document.getElementById('eoqDemand').value;
+  const S = +document.getElementById('eoqOrderCost').value;
+  const H = +document.getElementById('eoqHoldingCost').value;
+  
+  let Q = +document.getElementById('eoqQty').value;
+  const eoqVal = Math.round(Math.sqrt((2 * D * S) / H));
+  
+  document.getElementById('eoqDemandReadout').textContent = D.toLocaleString();
+  document.getElementById('eoqOrderCostReadout').textContent = S.toLocaleString();
+  document.getElementById('eoqHoldingCostReadout').textContent = H.toLocaleString();
+  document.getElementById('eoqQtyReadout').textContent = Q.toLocaleString();
+  
+  document.getElementById('eoqCalcDisplay').textContent = eoqVal.toLocaleString();
+  
+  const holdingCost = (Q / 2) * H;
+  const orderingCost = (D / Q) * S;
+  const totalCost = holdingCost + orderingCost;
+  
+  document.getElementById('eoqCostDisplay').textContent = Math.round(totalCost).toLocaleString();
+  
+  drawEOQChart(D, S, H, Q, eoqVal);
+}
+
+function drawEOQChart(D, S, H, Q, eoq) {
+  const svg = document.getElementById('eoqChart');
+  if (!svg) return;
+  svg.innerHTML = '';
+
+  const w = 350, h = 250;
+  const paddingLeft = 45;
+  const paddingRight = 15;
+  const paddingTop = 15;
+  const paddingBottom = 25;
+  const graphWidth = w - paddingLeft - paddingRight;
+  const graphHeight = h - paddingTop - paddingBottom;
+
+  const qMin = +document.getElementById('eoqQty').min;
+  const qMax = +document.getElementById('eoqQty').max;
+
+  const numPoints = 40;
+  const points = [];
+  let maxCost = 0;
+
+  for (let i = 0; i <= numPoints; i++) {
+    const qVal = qMin + (i / numPoints) * (qMax - qMin);
+    const holdCost = (qVal / 2) * H;
+    const orderCost = (D / qVal) * S;
+    const totCost = holdCost + orderCost;
+    points.push({ qVal, holdCost, orderCost, totCost });
+    
+    if (totCost > maxCost && qVal >= qMin) {
+      const eoqCost = Math.sqrt(2 * D * S * H);
+      if (totCost < eoqCost * 4) {
+        maxCost = totCost;
+      }
+    }
+  }
+
+  const eoqCost = Math.sqrt(2 * D * S * H);
+  if (maxCost === 0) maxCost = eoqCost * 2.5;
+
+  const getX = (qVal) => paddingLeft + ((qVal - qMin) / (qMax - qMin)) * graphWidth;
+  const getY = (costVal) => {
+    const yRatio = costVal / maxCost;
+    const yVal = h - paddingBottom - yRatio * graphHeight;
+    return Math.max(paddingTop, Math.min(h - paddingBottom, yVal));
+  };
+
+  const xAxis = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  xAxis.setAttribute('x1', paddingLeft);
+  xAxis.setAttribute('x2', w - paddingRight);
+  xAxis.setAttribute('y1', h - paddingBottom);
+  xAxis.setAttribute('y2', h - paddingBottom);
+  xAxis.setAttribute('stroke', 'var(--line-strong)');
+  xAxis.setAttribute('stroke-width', '1.5');
+  svg.appendChild(xAxis);
+
+  const yAxis = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  yAxis.setAttribute('x1', paddingLeft);
+  yAxis.setAttribute('x2', paddingLeft);
+  yAxis.setAttribute('y1', paddingTop);
+  yAxis.setAttribute('y2', h - paddingBottom);
+  yAxis.setAttribute('stroke', 'var(--line-strong)');
+  yAxis.setAttribute('stroke-width', '1.5');
+  svg.appendChild(yAxis);
+
+  let holdPoints = '';
+  let orderPoints = '';
+  let totalPoints = '';
+
+  points.forEach(pt => {
+    holdPoints += `${getX(pt.qVal)},${getY(pt.holdCost)} `;
+    orderPoints += `${getX(pt.qVal)},${getY(pt.orderCost)} `;
+    totalPoints += `${getX(pt.qVal)},${getY(pt.totCost)} `;
+  });
+
+  const drawPolyline = (pts, color, width, dash = '') => {
+    const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+    poly.setAttribute('points', pts.trim());
+    poly.setAttribute('fill', 'none');
+    poly.setAttribute('stroke', color);
+    poly.setAttribute('stroke-width', width);
+    if (dash) poly.setAttribute('stroke-dasharray', dash);
+    svg.appendChild(poly);
+  };
+
+  drawPolyline(holdPoints, 'var(--green)', '1.5', '3,3');
+  drawPolyline(orderPoints, 'var(--blueprint)', '1.5', '3,3');
+  drawPolyline(totalPoints, 'var(--orange)', '2.5');
+
+  const qX = getX(Q);
+  const qLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  qLine.setAttribute('x1', qX);
+  qLine.setAttribute('x2', qX);
+  qLine.setAttribute('y1', paddingTop);
+  qLine.setAttribute('y2', h - paddingBottom);
+  qLine.setAttribute('stroke', 'var(--text-dim)');
+  qLine.setAttribute('stroke-dasharray', '2,2');
+  svg.appendChild(qLine);
+
+  const currentHold = (Q / 2) * H;
+  const currentOrder = (D / Q) * S;
+  const currentTotal = currentHold + currentOrder;
+
+  const qDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  qDot.setAttribute('cx', qX);
+  qDot.setAttribute('cy', getY(currentTotal));
+  qDot.setAttribute('r', '5');
+  qDot.setAttribute('fill', 'var(--text)');
+  qDot.setAttribute('stroke', 'var(--orange)');
+  qDot.setAttribute('stroke-width', '2');
+  svg.appendChild(qDot);
+
+  const eoqX = getX(eoq);
+  const eoqDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  eoqDot.setAttribute('cx', eoqX);
+  eoqDot.setAttribute('cy', getY(Math.sqrt(2 * D * S * H)));
+  eoqDot.setAttribute('r', '4');
+  eoqDot.setAttribute('fill', 'var(--orange)');
+  svg.appendChild(eoqDot);
+
+  const yLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  yLabel.setAttribute('x', paddingLeft - 8);
+  yLabel.setAttribute('y', paddingTop - 5);
+  yLabel.setAttribute('font-size', '9');
+  yLabel.setAttribute('font-family', 'IBM Plex Mono, monospace');
+  yLabel.setAttribute('fill', 'var(--text-faint)');
+  yLabel.setAttribute('text-anchor', 'end');
+  yLabel.textContent = 'Cost (₹)';
+  svg.appendChild(yLabel);
+
+  const xLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  xLabel.setAttribute('x', w - paddingRight);
+  xLabel.setAttribute('y', h - paddingBottom + 18);
+  xLabel.setAttribute('font-size', '9');
+  xLabel.setAttribute('font-family', 'IBM Plex Mono, monospace');
+  xLabel.setAttribute('fill', 'var(--text-faint)');
+  xLabel.setAttribute('text-anchor', 'end');
+  xLabel.textContent = 'Order Qty (Q)';
+  svg.appendChild(xLabel);
+
+  const ticksY = [0, maxCost * 0.5, maxCost];
+  ticksY.forEach(val => {
+    const yVal = getY(val);
+    const tickText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    tickText.setAttribute('x', paddingLeft - 8);
+    tickText.setAttribute('y', yVal + 3);
+    tickText.setAttribute('font-size', '8');
+    tickText.setAttribute('font-family', 'IBM Plex Mono, monospace');
+    tickText.setAttribute('fill', 'var(--text-dim)');
+    tickText.setAttribute('text-anchor', 'end');
+    tickText.textContent = '₹' + Math.round(val).toLocaleString();
+    svg.appendChild(tickText);
+  });
+
+  const ticksX = [qMin, Q, qMax];
+  ticksX.forEach(val => {
+    const xVal = getX(val);
+    const tickText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    tickText.setAttribute('x', xVal);
+    tickText.setAttribute('y', h - paddingBottom + 10);
+    tickText.setAttribute('font-size', '8');
+    tickText.setAttribute('font-family', 'IBM Plex Mono, monospace');
+    tickText.setAttribute('fill', val === Q ? 'var(--orange)' : 'var(--text-dim)');
+    tickText.setAttribute('text-anchor', 'middle');
+    tickText.textContent = Math.round(val).toLocaleString();
+    svg.appendChild(tickText);
+  });
+
+  const drawLegendItem = (x, y, label, color, dashed = false) => {
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x);
+    line.setAttribute('x2', x + 15);
+    line.setAttribute('y1', y);
+    line.setAttribute('y2', y);
+    line.setAttribute('stroke', color);
+    line.setAttribute('stroke-width', '2');
+    if (dashed) line.setAttribute('stroke-dasharray', '2,2');
+    svg.appendChild(line);
+
+    const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    txt.setAttribute('x', x + 20);
+    txt.setAttribute('y', y + 3);
+    txt.setAttribute('font-size', '8.5');
+    txt.setAttribute('font-family', 'IBM Plex Sans, sans-serif');
+    txt.setAttribute('fill', 'var(--text-dim)');
+    svg.appendChild(txt);
+    txt.textContent = label;
+  };
+
+  drawLegendItem(w - 120, paddingTop + 5, 'Total Cost', 'var(--orange)');
+  drawLegendItem(w - 120, paddingTop + 18, 'Holding Cost', 'var(--green)', true);
+  drawLegendItem(w - 120, paddingTop + 31, 'Ordering Cost', 'var(--blueprint)', true);
+}
+
+// Event Listeners for EOQ
+document.getElementById('eoqPresetCoffee').addEventListener('click', () => applyPreset('coffee'));
+document.getElementById('eoqPresetBeer').addEventListener('click', () => applyPreset('beer'));
+
+document.getElementById('eoqDemand').addEventListener('input', updateEOQ);
+document.getElementById('eoqOrderCost').addEventListener('input', updateEOQ);
+document.getElementById('eoqHoldingCost').addEventListener('input', updateEOQ);
+document.getElementById('eoqQty').addEventListener('input', updateEOQ);
+
+document.getElementById('eoqResetQBtn').addEventListener('click', () => {
+  const D = +document.getElementById('eoqDemand').value;
+  const S = +document.getElementById('eoqOrderCost').value;
+  const H = +document.getElementById('eoqHoldingCost').value;
+  const eoqVal = Math.round(Math.sqrt((2 * D * S) / H));
+  
+  const sliderQ = document.getElementById('eoqQty');
+  sliderQ.value = Math.max(sliderQ.min, Math.min(sliderQ.max, eoqVal));
+  updateEOQ();
+});
+
 render();
 updateCVP();
 updateMatrix(3);
 updateComparison(2);
+applyPreset('coffee');
 </script>
 </body>
 </html>
