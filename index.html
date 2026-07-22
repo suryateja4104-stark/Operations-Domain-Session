@@ -1743,7 +1743,7 @@
 
           <!-- Mini SVG Cost Curves Chart -->
           <div style="border-top:1px solid var(--line); margin-top:10px; padding-top:8px;">
-            <svg id="eoqChart" viewBox="0 0 350 200" style="width:100%; height:130px; display:block; overflow:visible;"></svg>
+            <svg id="eoqChart" viewBox="0 0 350 260" style="width:100%; height:230px; display:block; overflow:visible;"></svg>
           </div>
         </div>
       </div>
@@ -3034,11 +3034,11 @@ function drawEOQChart(D, S, H, Q, eoq) {
   if (!svg) return;
   svg.innerHTML = '';
 
-  const w = 350, h = 250;
-  const paddingLeft = 45;
+  const w = 350, h = 260;
+  const paddingLeft = 50;
   const paddingRight = 15;
   const paddingTop = 15;
-  const paddingBottom = 25;
+  const paddingBottom = 32;
   const graphWidth = w - paddingLeft - paddingRight;
   const graphHeight = h - paddingTop - paddingBottom;
 
