@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -851,22 +851,9 @@
       <button class="nav-tab" data-tab="introduction">Introduction</button>
       <button class="nav-tab" data-tab="production-systems">Production Systems</button>
       <button class="nav-tab" data-tab="comparison">Comparison</button>
-      <button class="nav-tab" data-tab="inventory-mgmt">Inventory Mgmt</button>
-      <button class="nav-tab" data-tab="why-inventory">Why Keep Inventory</button>
-      <button class="nav-tab" data-tab="financial-implications">Financial Implications</button>
-      <button class="nav-tab" data-tab="inventory-control">Inventory Control</button>
-      <button class="nav-tab" data-tab="eoq">EOQ</button>
-      <button class="nav-tab" data-tab="abc-inventory">ABC Inventory</button>
-      <button class="nav-tab" data-tab="tps">Toyota TPS</button>
-      <button class="nav-tab" data-tab="jit">Just In Time</button>
-      <button class="nav-tab" data-tab="lean-mfg">Lean Mfg</button>
-      <button class="nav-tab" data-tab="six-sigma">Six Sigma</button>
-      <button class="nav-tab" data-tab="problem-solving">Problem Solving</button>
-      <button class="nav-tab" data-tab="lean-six-sigma">Lean Six Sigma</button>
+      <button class="nav-tab" data-tab="inventory-mgmt">Inventory Management</button>
+      <button class="nav-tab" data-tab="lean-six-sigma">Lean &amp; Six Sigma</button>
       <button class="nav-tab" data-tab="bullwhip">Bullwhip Effect</button>
-      <button class="nav-tab" data-tab="project-mgmt">Project Mgmt</button>
-      <button class="nav-tab" data-tab="interview-tips">Interview Tips</button>
-      <button class="nav-tab" data-tab="general-tips">General Tips</button>
     </nav>
   </div>
 </header>
@@ -1578,8 +1565,197 @@
   <div class="wrap">Interactive Operations Study Guide — Every number and visualization recalculates live.</div>
 </footer>
 
-<!-- ==================== TAB 5: INVENTORY MANAGEMENT ==================== -->
+<!-- ==================== TAB 5: INVENTORY MANAGEMENT (CONSOLIDATED) ==================== -->
 <div id="inventory-mgmt" class="tab-panel">
+  <!-- 1. Definition & Types -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="kicker-num">1</span></div>
+      <h2>Inventory Management</h2>
+      <p class="lead">Inventory is anything purchased or acquired for transformation or resale into saleable goods. Holding inventories helps companies insulate operations from variations in the supply chain.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;" class="reveal">
+        <div class="dash-card" style="padding:16px;">
+          <h3 class="card-title" style="margin-bottom:12px;">Types of Inventory</h3>
+          <div class="table-container">
+            <table style="width:100%;min-width:400px;border-collapse:collapse;font-size:12.5px;">
+              <thead>
+                <tr style="background:var(--bg-panel-2);border-bottom:1px solid var(--line-strong);font-family:'Big Shoulders Display',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);">
+                  <th style="padding:8px 10px;color:var(--blueprint);">Input</th>
+                  <th style="padding:8px 10px;color:var(--orange);">Process (WIP)</th>
+                  <th style="padding:8px 10px;color:var(--green);">Output</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--line);">
+                  <td style="padding:8px 10px;font-weight:600;">Raw Materials</td>
+                  <td style="padding:8px 10px;font-weight:600;">Work In Process</td>
+                  <td style="padding:8px 10px;font-weight:600;">Finished Goods</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 10px;color:var(--text-dim);font-size:11.5px;">Consumables, fuel, bolts &amp; nuts, stationery</td>
+                  <td style="padding:8px 10px;color:var(--text-dim);font-size:11.5px;">Production, QC, Paint Shop, Final Assembly, Packing</td>
+                  <td style="padding:8px 10px;color:var(--text-dim);font-size:11.5px;">At distribution centres throughout supply chain</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Supply Chain Flow -->
+        <div class="dash-card" style="padding:16px;">
+          <h3 class="card-title" style="margin-bottom:12px;">Why Keep Inventory?</h3>
+          <div style="display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;padding:8px 0 12px;">
+            <div style="background:var(--bg-panel-2);border:1px solid var(--line-strong);border-radius:4px;padding:8px 12px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;">Suppliers</div>
+            <div style="display:flex;flex-direction:column;align-items:center;padding:0 6px;"><div style="width:28px;height:2px;background:var(--blueprint);"></div><span style="font-size:8px;color:var(--blueprint);font-weight:700;">RM</span></div>
+            <div style="background:var(--bg-panel-2);border:1px solid var(--orange);border-radius:4px;padding:8px 12px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;color:var(--orange);">Operations</div>
+            <div style="display:flex;flex-direction:column;align-items:center;padding:0 6px;"><div style="width:28px;height:2px;background:var(--green);"></div><span style="font-size:8px;color:var(--green);font-weight:700;">FG</span></div>
+            <div style="background:var(--bg-panel-2);border:1px solid var(--line-strong);border-radius:4px;padding:8px 12px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;">Customers</div>
+          </div>
+          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:12px;color:var(--text-dim);line-height:1.4;"><strong style="color:var(--text);">Demand variation</strong> — Finished goods buffer against demand spikes</li>
+            <li style="font-size:12px;color:var(--text-dim);line-height:1.4;"><strong style="color:var(--text);">Supply variation</strong> — RM buffer against supplier delays</li>
+            <li style="font-size:12px;color:var(--text-dim);line-height:1.4;"><strong style="color:var(--text);">Economic order size</strong> — Bulk buying reduces unit cost</li>
+            <li style="font-size:12px;color:var(--text-dim);line-height:1.4;"><strong style="color:var(--text);">Process independence</strong> — WIP decouples workstations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Financial Implications -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="kicker-num">2</span></div>
+      <h2>Financial Implications of Inventory</h2>
+      <p class="lead">Inventory management = managing the economic balance — maximising savings and minimising costs.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="reveal">
+        <div class="dash-card" style="padding:16px;border-top:3px solid var(--green);">
+          <h3 class="card-title" style="color:var(--green);margin-bottom:10px;">💰 Savings</h3>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;"><strong style="font-size:11.5px;">Shortage Cost Avoidance</strong><p style="font-size:11.5px;color:var(--text-dim);margin:3px 0 0;">Unavailability leads to lost business opportunity</p></div>
+            <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;"><strong style="font-size:11.5px;">Bulk Purchase Discounts</strong><p style="font-size:11.5px;color:var(--text-dim);margin:3px 0 0;">Ordering in bulk reduces per-unit raw material cost</p></div>
+            <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;"><strong style="font-size:11.5px;">Reduced Ordering Costs</strong><p style="font-size:11.5px;color:var(--text-dim);margin:3px 0 0;">More inventory = fewer orders = lower procurement cost</p></div>
+          </div>
+        </div>
+        <div class="dash-card" style="padding:16px;border-top:3px solid var(--rust);">
+          <h3 class="card-title" style="color:var(--rust);margin-bottom:10px;">⚠️ Costs</h3>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;"><strong style="font-size:11.5px;">Holding / Carrying Costs</strong><p style="font-size:11.5px;color:var(--text-dim);margin:3px 0 0;">All expenses for storing and maintaining inventory</p></div>
+            <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;"><strong style="font-size:11.5px;">Inventory Storage Cost</strong><p style="font-size:11.5px;color:var(--text-dim);margin:3px 0 0;">Warehouses, material handling equipment, HR, utilities</p></div>
+            <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;"><strong style="font-size:11.5px;">Opportunity Cost of Capital</strong><p style="font-size:11.5px;color:var(--text-dim);margin:3px 0 0;">Inventory = money on forklifts, shelves, trucks in transit</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Inventory Control -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="kicker-num">3</span></div>
+      <h2>Inventory Control Systems</h2>
+      <p class="lead">Two primary systems govern when and how much to order — one event-triggered, one time-triggered.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="reveal">
+        <div class="dash-card" style="padding:16px;border-top:3px solid var(--blueprint);">
+          <h3 class="card-title" style="color:var(--blueprint);margin-bottom:4px;">Continuous Review (q System)</h3>
+          <div style="font-size:10.5px;color:var(--text-faint);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">Event Triggered</div>
+          <svg viewBox="0 0 280 100" style="width:100%;display:block;margin-bottom:10px;">
+            <line x1="20" y1="85" x2="260" y2="85" stroke="var(--line-strong)" stroke-width="1"/>
+            <line x1="20" y1="10" x2="20" y2="85" stroke="var(--line-strong)" stroke-width="1"/>
+            <polyline points="20,18 80,18 80,68 130,68 130,18 190,18 190,68 240,68 240,18" fill="none" stroke="var(--blueprint)" stroke-width="2"/>
+            <line x1="20" y1="70" x2="260" y2="70" stroke="var(--rust)" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="262" y="73" font-size="8" fill="var(--rust)" font-family="IBM Plex Mono,monospace">ROP</text>
+            <text x="130" y="98" font-size="8" fill="var(--text-faint)" font-family="IBM Plex Mono,monospace" text-anchor="middle">Time →</text>
+          </svg>
+          <ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:5px;">
+            <li style="font-size:12px;color:var(--text-dim);"><strong style="color:var(--text);">When:</strong> Order when stock hits Re-Order Point (ROP)</li>
+            <li style="font-size:12px;color:var(--text-dim);"><strong style="color:var(--text);">How much:</strong> Fixed Order Quantity (EOQ)</li>
+          </ul>
+        </div>
+        <div class="dash-card" style="padding:16px;border-top:3px solid var(--orange);">
+          <h3 class="card-title" style="color:var(--orange);margin-bottom:4px;">Periodic Review (p System)</h3>
+          <div style="font-size:10.5px;color:var(--text-faint);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.04em;">Time Triggered</div>
+          <svg viewBox="0 0 280 100" style="width:100%;display:block;margin-bottom:10px;">
+            <line x1="20" y1="85" x2="260" y2="85" stroke="var(--line-strong)" stroke-width="1"/>
+            <line x1="20" y1="10" x2="20" y2="85" stroke="var(--line-strong)" stroke-width="1"/>
+            <polyline points="20,22 80,52 80,22 160,52 160,22 240,52" fill="none" stroke="var(--orange)" stroke-width="2"/>
+            <line x1="80" y1="10" x2="80" y2="85" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="160" y1="10" x2="160" y2="85" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="240" y1="10" x2="240" y2="85" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="20" y1="22" x2="260" y2="22" stroke="var(--green)" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="262" y="25" font-size="8" fill="var(--green)" font-family="IBM Plex Mono,monospace">OUL</text>
+            <text x="130" y="98" font-size="8" fill="var(--text-faint)" font-family="IBM Plex Mono,monospace" text-anchor="middle">Fixed Period T →</text>
+          </svg>
+          <ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:5px;">
+            <li style="font-size:12px;color:var(--text-dim);"><strong style="color:var(--text);">When:</strong> Fixed review intervals (e.g., weekly)</li>
+            <li style="font-size:12px;color:var(--text-dim);"><strong style="color:var(--text);">How much:</strong> Order up to OUL minus current stock</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. EOQ -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="kicker-num">4</span></div>
+      <h2>Economic Order Quantity (EOQ)</h2>
+      <p class="lead">The order quantity that minimises total costs of ordering, receiving, and holding inventory.</p>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;" class="reveal">
+        <div class="dash-card" style="padding:20px;text-align:center;border:1px solid var(--orange);background:rgba(226,87,28,0.04);">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:700;color:var(--orange);">EOQ = √( 2DS / H )</div>
+          <div style="margin-top:10px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+            <span style="font-size:11.5px;color:var(--text-dim);"><b style="color:var(--text);">D</b> = Annual Demand</span>
+            <span style="font-size:11.5px;color:var(--text-dim);"><b style="color:var(--text);">S</b> = Cost per Order</span>
+            <span style="font-size:11.5px;color:var(--text-dim);"><b style="color:var(--text);">H</b> = Annual Holding Cost/Unit</span>
+          </div>
+        </div>
+        <div class="dash-card" style="padding:14px;">
+          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
+            <li style="font-size:12.5px;color:var(--text-dim);">Minimises total ordering, receiving, and holding costs</li>
+            <li style="font-size:12.5px;color:var(--text-dim);">Best applied where demand, ordering, and holding costs are <strong style="color:var(--text);">constant over time</strong></li>
+            <li style="font-size:12.5px;color:var(--rust);">⚠️ Limitation: assumes constant demand — not realistic for seasonal goods</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ABC Inventory -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="kicker-num">5</span></div>
+      <h2>ABC Inventory Management</h2>
+      <p class="lead">Pareto Principle applied to inventory — 80% of rupee value comes from 20% of items. Manage each class with proportional attention.</p>
+      <div class="dash-card reveal" style="padding:16px;margin-bottom:16px;">
+        <h3 class="card-title" style="margin-bottom:10px;">Mobile Phone Mfg — Annual Demand: 1 Lakh Phones</h3>
+        <div class="table-container">
+          <table style="width:100%;min-width:560px;border-collapse:collapse;font-size:12px;">
+            <thead>
+              <tr style="background:var(--bg-panel-2);border-bottom:1px solid var(--line-strong);font-family:'Big Shoulders Display',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);">
+                <th style="padding:7px 10px;">Item</th><th style="padding:7px 10px;text-align:right;">Units/Phone</th><th style="padding:7px 10px;text-align:right;">Cost/Unit (₹)</th><th style="padding:7px 10px;text-align:right;">Annual ₹ Vol</th><th style="padding:7px 10px;text-align:center;">Class</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--line);background:rgba(226,87,28,0.04);"><td style="padding:7px 10px;font-weight:600;">Screen</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">1</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">4,000</td><td style="padding:7px 10px;text-align:right;font-weight:700;color:var(--orange);">₹40 Cr</td><td style="padding:7px 10px;text-align:center;"><span style="background:rgba(226,87,28,0.15);color:var(--orange);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:13px;border-radius:3px;padding:2px 8px;">A</span></td></tr>
+              <tr style="border-bottom:1px solid var(--line);background:rgba(226,87,28,0.04);"><td style="padding:7px 10px;font-weight:600;">Motherboard</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">1</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">3,500</td><td style="padding:7px 10px;text-align:right;font-weight:700;color:var(--orange);">₹35 Cr</td><td style="padding:7px 10px;text-align:center;"><span style="background:rgba(226,87,28,0.15);color:var(--orange);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:13px;border-radius:3px;padding:2px 8px;">A</span></td></tr>
+              <tr style="border-bottom:1px solid var(--line);background:rgba(46,92,138,0.03);"><td style="padding:7px 10px;font-weight:600;">Camera</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">4</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">500</td><td style="padding:7px 10px;text-align:right;font-weight:700;color:var(--blueprint);">₹20 Cr</td><td style="padding:7px 10px;text-align:center;"><span style="background:rgba(46,92,138,0.15);color:var(--blueprint);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:13px;border-radius:3px;padding:2px 8px;">B</span></td></tr>
+              <tr style="border-bottom:1px solid var(--line);background:rgba(46,92,138,0.03);"><td style="padding:7px 10px;font-weight:600;">Body</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">1</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">1,500</td><td style="padding:7px 10px;text-align:right;font-weight:700;color:var(--blueprint);">₹15 Cr</td><td style="padding:7px 10px;text-align:center;"><span style="background:rgba(46,92,138,0.15);color:var(--blueprint);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:13px;border-radius:3px;padding:2px 8px;">B</span></td></tr>
+              <tr style="border-bottom:1px solid var(--line);"><td style="padding:7px 10px;font-weight:600;">Speaker</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">2</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">500</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">₹10 Cr</td><td style="padding:7px 10px;text-align:center;"><span style="background:var(--bg-panel-2);color:var(--text-dim);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:13px;border-radius:3px;padding:2px 8px;">C</span></td></tr>
+              <tr style="border-bottom:1px solid var(--line);"><td style="padding:7px 10px;font-weight:600;">Battery</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">1</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">400</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">₹4 Cr</td><td style="padding:7px 10px;text-align:center;"><span style="background:var(--bg-panel-2);color:var(--text-dim);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:13px;border-radius:3px;padding:2px 8px;">C</span></td></tr>
+              <tr><td style="padding:7px 10px;font-weight:600;">Screws</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">50</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">1</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">₹0.5 Cr</td><td style="padding:7px 10px;text-align:center;"><span style="background:var(--bg-panel-2);color:var(--text-dim);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:13px;border-radius:3px;padding:2px 8px;">C</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" class="reveal">
+        <div class="dash-card" style="padding:12px;border-top:3px solid var(--orange);text-align:center;"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:26px;color:var(--orange);">A</div><div style="font-size:11px;color:var(--text-dim);">Top 15% of items</div><div style="font-size:10px;color:var(--text-faint);margin-top:4px;">Review: <strong>Weekly</strong></div></div>
+        <div class="dash-card" style="padding:12px;border-top:3px solid var(--blueprint);text-align:center;"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:26px;color:var(--blueprint);">B</div><div style="font-size:11px;color:var(--text-dim);">Next 35% of items</div><div style="font-size:10px;color:var(--text-faint);margin-top:4px;">Review: <strong>Biweekly</strong></div></div>
+        <div class="dash-card" style="padding:12px;border-top:3px solid var(--line-strong);text-align:center;"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:26px;color:var(--text-dim);">C</div><div style="font-size:11px;color:var(--text-dim);">Last 50% of items</div><div style="font-size:10px;color:var(--text-faint);margin-top:4px;">Review: <strong>Monthly</strong></div></div>
+      </div>
+    </div>
+  </section>
+</div>
   <section class="block">
     <div class="wrap">
       <div class="kicker"><span class="kicker-num">1</span></div>
@@ -1616,292 +1792,134 @@
   </section>
 </div>
 
-<!-- ==================== TAB 6: WHY KEEP INVENTORY ==================== -->
-<div id="why-inventory" class="tab-panel">
+
+
+
+
+
+<!-- ==================== TAB 11-16: LEAN & SIX SIGMA (CONSOLIDATED) ==================== -->
+<div id="lean-six-sigma" class="tab-panel">
+  <!-- TPS -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="kicker-num">1</span></div>
+      <h2>Toyota Production System (TPS)</h2>
+      <p class="lead">Produce required output with the least possible resources. Built on two philosophies: <strong>Respect for People</strong> and <strong>Lean Manufacturing</strong> (elimination of waste).</p>
+      <div class="dash-card reveal" style="padding:14px;margin-bottom:16px;">
+        <svg viewBox="0 0 520 190" style="width:100%;max-width:520px;display:block;margin:0 auto;">
+          <polygon points="260,10 30,62 490,62" fill="var(--bg-panel-2)" stroke="var(--line-strong)" stroke-width="1.5"/>
+          <text x="260" y="44" font-family="'Big Shoulders Display',sans-serif" font-weight="900" font-size="12" text-anchor="middle" fill="var(--orange)">OBJECTIVE: QUALITY &amp; PRODUCTIVITY</text>
+          <rect x="50" y="62" width="178" height="82" fill="var(--bg-panel-2)" stroke="var(--blueprint)" stroke-width="1.5"/>
+          <text x="139" y="100" font-family="'Big Shoulders Display',sans-serif" font-weight="900" font-size="13" text-anchor="middle" fill="var(--blueprint)">JUST IN TIME</text>
+          <text x="139" y="116" font-family="'IBM Plex Mono',monospace" font-size="9" text-anchor="middle" fill="var(--text-dim)">Right part, right time, right qty</text>
+          <rect x="292" y="62" width="178" height="82" fill="var(--bg-panel-2)" stroke="var(--green)" stroke-width="1.5"/>
+          <text x="381" y="100" font-family="'Big Shoulders Display',sans-serif" font-weight="900" font-size="13" text-anchor="middle" fill="var(--green)">JIDOKA</text>
+          <text x="381" y="116" font-family="'IBM Plex Mono',monospace" font-size="9" text-anchor="middle" fill="var(--text-dim)">Auto-stop on defect detection</text>
+          <rect x="30" y="144" width="460" height="36" fill="var(--bg-panel-2)" stroke="var(--line-strong)" stroke-width="1.5"/>
+          <text x="260" y="166" font-family="'Big Shoulders Display',sans-serif" font-weight="900" font-size="11" text-anchor="middle" fill="var(--text-dim)">STANDARDIZED WORK &amp; STABILITY (5S, Kaizen, Heijunka)</text>
+        </svg>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="reveal">
+        <div class="dash-card" style="padding:14px;"><h3 class="card-title" style="margin-bottom:8px;">Respect for People</h3><ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:6px;"><li style="font-size:12px;color:var(--text-dim);">Permanent employment — workers not treated as variable costs</li><li style="font-size:12px;color:var(--text-dim);">Regular performance-linked bonuses</li><li style="font-size:12px;color:var(--text-dim);">Supplier relations built on trust — vendors feel part of Toyota family</li></ul></div>
+        <div class="dash-card" style="padding:14px;"><h3 class="card-title" style="margin-bottom:8px;">Lean Manufacturing</h3><ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:6px;"><li style="font-size:12px;color:var(--text-dim);">Systematic elimination of all waste (Muda)</li><li style="font-size:12px;color:var(--text-dim);">Continuous improvement (Kaizen) by every employee</li><li style="font-size:12px;color:var(--text-dim);">Pull production — make only what is needed, when needed</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JIT -->
   <section class="block">
     <div class="wrap">
       <div class="kicker"><span class="kicker-num">2</span></div>
-      <h2>Why Keep Inventory?</h2>
-      <p class="lead">Holding inventories helps companies insulate operations from variations in the supply chain.</p>
-
-      <!-- Supply Chain Flow Diagram -->
-      <div class="dash-card reveal" style="padding:16px;margin-bottom:24px;">
-        <h3 class="card-title" style="margin-bottom:12px;">Supply Chain Flow</h3>
-        <div style="display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;padding:12px 0;">
-          <div style="background:var(--bg-panel-2);border:1px solid var(--line-strong);border-radius:4px;padding:10px 18px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:0.04em;">Suppliers</div>
-          <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;">
-            <div style="width:40px;height:2px;background:var(--blueprint);"></div>
-            <span style="font-size:9px;color:var(--blueprint);font-weight:700;margin-top:2px;">Raw Material</span>
-          </div>
-          <div style="background:var(--bg-panel-2);border:1px solid var(--orange);border-radius:4px;padding:10px 18px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:0.04em;color:var(--orange);">Operations</div>
-          <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;">
-            <div style="width:40px;height:2px;background:var(--green);"></div>
-            <span style="font-size:9px;color:var(--green);font-weight:700;margin-top:2px;">Finished Goods</span>
-          </div>
-          <div style="background:var(--bg-panel-2);border:1px solid var(--line-strong);border-radius:4px;padding:10px 18px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:0.04em;">Customers</div>
-        </div>
-      </div>
-
-      <div class="dash-card reveal" style="padding:16px;">
-        <h3 class="card-title" style="margin-bottom:10px;">Reasons to Hold Inventory</h3>
-        <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;">
-          <li style="color:var(--text-dim);font-size:13px;line-height:1.5;"><strong style="color:var(--text);">Meet demand variation</strong> — Finished goods inventory guards against unpredictable customer demand spikes.</li>
-          <li style="color:var(--text-dim);font-size:13px;line-height:1.5;"><strong style="color:var(--text);">Safeguard supply variation</strong> — Raw material inventory provides a buffer against supplier delays or shortages.</li>
-          <li style="color:var(--text-dim);font-size:13px;line-height:1.5;"><strong style="color:var(--text);">Economic purchase order size</strong> — Buying in bulk reduces per-unit cost; raw material inventory absorbs the larger lot.</li>
-          <li style="color:var(--text-dim);font-size:13px;line-height:1.5;"><strong style="color:var(--text);">Process independence</strong> — WIP inventory decouples workstations so a stoppage at one stage does not immediately halt the next.</li>
-        </ul>
+      <h2>Just In Time (JIT)</h2>
+      <p class="lead">Supply goods as close as possible to when actually needed — minimising inventory and freeing up capital. Kanban (Pull signal system) enables JIT.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="reveal">
+        <div class="dash-card" style="padding:14px;border-top:3px solid var(--green);"><h3 class="card-title" style="color:var(--green);margin-bottom:8px;">✅ Advantages</h3><ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:6px;"><li style="font-size:12px;color:var(--text-dim);">Short production runs — easy product switching</li><li style="font-size:12px;color:var(--text-dim);">Reduced warehouse costs</li><li style="font-size:12px;color:var(--text-dim);">Less capital tied up in raw material</li></ul></div>
+        <div class="dash-card" style="padding:14px;border-top:3px solid var(--rust);"><h3 class="card-title" style="color:var(--rust);margin-bottom:8px;">⚠️ Disadvantages</h3><ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:6px;"><li style="font-size:12px;color:var(--text-dim);">Supply chain disruption risk — single failure halts production</li><li style="font-size:12px;color:var(--text-dim);"><em>Toyota 1997: supplier fire nearly halted all production</em></li><li style="font-size:12px;color:var(--text-dim);">Sudden demand spikes may not be met</li></ul></div>
       </div>
     </div>
   </section>
-</div>
 
-<!-- ==================== TAB 7: FINANCIAL IMPLICATIONS ==================== -->
-<div id="financial-implications" class="tab-panel">
+  <!-- Lean Mfg -->
   <section class="block">
     <div class="wrap">
       <div class="kicker"><span class="kicker-num">3</span></div>
-      <h2>Financial Implications of Inventory</h2>
-      <p class="lead">Inventory management involves managing the economic balance — maximising savings and minimising costs.</p>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="reveal">
-        <!-- Savings Column -->
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--green);">
-          <h3 class="card-title" style="color:var(--green);margin-bottom:12px;">💰 Inventory Savings</h3>
-          <div style="display:flex;flex-direction:column;gap:12px;">
-            <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;">
-              <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text);margin-bottom:4px;">Shortage Cost Avoidance</div>
-              <p style="font-size:12px;color:var(--text-dim);margin:0;line-height:1.5;">Unavailability of raw material or final product leads to lost business opportunity.</p>
-            </div>
-            <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;">
-              <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text);margin-bottom:4px;">Bulk Purchase Discounts</div>
-              <p style="font-size:12px;color:var(--text-dim);margin:0;line-height:1.5;">Discounts obtained while ordering raw materials in bulk reduce unit cost.</p>
-            </div>
-            <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;">
-              <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text);margin-bottom:4px;">Reduced Ordering Costs</div>
-              <p style="font-size:12px;color:var(--text-dim);margin:0;line-height:1.5;">More inventory = fewer orders placed = lower procurement &amp; logistics cost per unit.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Costs Column -->
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--rust);">
-          <h3 class="card-title" style="color:var(--rust);margin-bottom:12px;">⚠️ Inventory Costs</h3>
-          <div style="display:flex;flex-direction:column;gap:12px;">
-            <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;">
-              <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text);margin-bottom:4px;">Holding / Carrying Costs</div>
-              <p style="font-size:12px;color:var(--text-dim);margin:0;line-height:1.5;">All expenses related to storing and maintaining inventory in the system.</p>
-            </div>
-            <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;">
-              <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text);margin-bottom:4px;">Inventory Storage Cost</div>
-              <p style="font-size:12px;color:var(--text-dim);margin:0;line-height:1.5;">Cost of building/leasing warehouses, material handling equipment, HR, utilities, etc.</p>
-            </div>
-            <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;">
-              <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text);margin-bottom:4px;">Opportunity Cost of Capital</div>
-              <p style="font-size:12px;color:var(--text-dim);margin:0;line-height:1.5;">Inventory = money sitting on forklifts, shelves, and trucks in transit. That capital cannot earn returns elsewhere.</p>
-            </div>
-          </div>
-        </div>
+      <h2>Lean Manufacturing — 8 Wastes (DOWNTIME)</h2>
+      <p class="lead">Eliminate all waste so every step adds value. Common tools: 5S, Kaizen, Poka-Yoke, JIT, Kanban.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;" class="reveal">
+        <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;border-left:3px solid var(--rust);"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11.5px;text-transform:uppercase;color:var(--rust);">D — Defects</div><p style="font-size:11px;color:var(--text-dim);margin:3px 0 0;">Products not meeting specs; requires rework or scrap</p></div>
+        <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;border-left:3px solid var(--orange);"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11.5px;text-transform:uppercase;color:var(--orange);">O — Overproduction</div><p style="font-size:11px;color:var(--text-dim);margin:3px 0 0;">Making more than needed, earlier than needed</p></div>
+        <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;border-left:3px solid var(--blueprint);"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11.5px;text-transform:uppercase;color:var(--blueprint);">W — Waiting</div><p style="font-size:11px;color:var(--text-dim);margin:3px 0 0;">Idle time when people or machines wait for the next step</p></div>
+        <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;border-left:3px solid var(--green);"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11.5px;text-transform:uppercase;color:var(--green);">N — Non-Used Talent</div><p style="font-size:11px;color:var(--text-dim);margin:3px 0 0;">Underutilising employee skills, creativity, knowledge</p></div>
+        <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;border-left:3px solid var(--rust);"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11.5px;text-transform:uppercase;color:var(--rust);">T — Transportation</div><p style="font-size:11px;color:var(--text-dim);margin:3px 0 0;">Unnecessary movement of materials or products</p></div>
+        <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;border-left:3px solid var(--orange);"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11.5px;text-transform:uppercase;color:var(--orange);">I — Inventory</div><p style="font-size:11px;color:var(--text-dim);margin:3px 0 0;">Excess RM, WIP, or FG tying up capital</p></div>
+        <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;border-left:3px solid var(--blueprint);"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11.5px;text-transform:uppercase;color:var(--blueprint);">M — Motion</div><p style="font-size:11px;color:var(--text-dim);margin:3px 0 0;">Unnecessary movement of people within a process</p></div>
+        <div style="background:var(--bg-panel-2);border-radius:4px;padding:9px 11px;border-left:3px solid var(--green);"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11.5px;text-transform:uppercase;color:var(--green);">E — Extra-Processing</div><p style="font-size:11px;color:var(--text-dim);margin:3px 0 0;">Doing more work than the customer requires or values</p></div>
       </div>
     </div>
   </section>
-</div>
 
-<!-- ==================== TAB 8: INVENTORY CONTROL SYSTEMS ==================== -->
-<div id="inventory-control" class="tab-panel">
+  <!-- Six Sigma -->
   <section class="block">
     <div class="wrap">
       <div class="kicker"><span class="kicker-num">4</span></div>
-      <h2>Inventory Control Systems</h2>
-      <p class="lead">Two primary systems govern when and how much to order — one event-triggered, one time-triggered.</p>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="reveal">
-        <!-- Q System -->
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--blueprint);">
-          <h3 class="card-title" style="color:var(--blueprint);margin-bottom:4px;">Continuous Review System</h3>
-          <div class="takt-status ok" style="margin-bottom:12px;color:var(--blueprint);border-color:rgba(46,92,138,0.35);background:rgba(46,92,138,0.08);display:inline-block;">q System — Event Triggered</div>
-          <svg viewBox="0 0 280 110" style="width:100%;display:block;margin-bottom:12px;">
-            <line x1="20" y1="90" x2="260" y2="90" stroke="var(--line-strong)" stroke-width="1"/>
-            <line x1="20" y1="10" x2="20" y2="90" stroke="var(--line-strong)" stroke-width="1"/>
-            <polyline points="20,20 80,20 80,70 130,70 130,20 190,20 190,70 240,70 240,20" fill="none" stroke="var(--blueprint)" stroke-width="2"/>
-            <line x1="20" y1="72" x2="260" y2="72" stroke="var(--rust)" stroke-width="1" stroke-dasharray="4,3"/>
-            <text x="262" y="75" font-size="8" fill="var(--rust)" font-family="IBM Plex Mono,monospace">ROP</text>
-            <text x="130" y="105" font-size="8" fill="var(--text-faint)" font-family="IBM Plex Mono,monospace" text-anchor="middle">Time →</text>
-            <text x="10" y="50" font-size="8" fill="var(--text-faint)" font-family="IBM Plex Mono,monospace" transform="rotate(-90,10,50)">Stock</text>
-          </svg>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
-            <li style="font-size:12px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">How often:</strong> System continuously tracks inventory level of each item</li>
-            <li style="font-size:12px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">When to order:</strong> Once inventory depletes to the Re-Order Point (ROP)</li>
-            <li style="font-size:12px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">How much:</strong> Fixed Order Quantity — typically the EOQ</li>
-          </ul>
+      <h2>Six Sigma (6σ)</h2>
+      <p class="lead">Quality is a compulsion, not a choice. Target: <strong>≤ 3.4 defects per million opportunities</strong>. Motorola 1987 → GE 1996 → Tata Steel, Asian Paints, L&amp;T Switch Gear.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="reveal">
+        <div class="dash-card" style="padding:14px;">
+          <h3 class="card-title" style="margin-bottom:10px;">Belt Certification</h3>
+          <div style="display:flex;gap:0;flex-wrap:wrap;">
+            <div style="flex:1;min-width:90px;background:rgba(226,87,28,0.08);border:1px solid var(--orange);border-radius:4px 0 0 4px;padding:9px;text-align:center;"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;color:var(--orange);">YELLOW</div><p style="font-size:10px;color:var(--text-dim);margin:3px 0 0;">Aware of principles</p></div>
+            <div style="flex:1;min-width:90px;background:rgba(61,122,82,0.08);border:1px solid var(--green);border-left:none;padding:9px;text-align:center;"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;color:var(--green);">GREEN</div><p style="font-size:10px;color:var(--text-dim);margin:3px 0 0;">Uses DMAIC tools</p></div>
+            <div style="flex:1;min-width:90px;background:rgba(46,92,138,0.08);border:1px solid var(--blueprint);border-left:none;padding:9px;text-align:center;"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;color:var(--blueprint);">BLACK</div><p style="font-size:10px;color:var(--text-dim);margin:3px 0 0;">Full-time project lead</p></div>
+            <div style="flex:1;min-width:90px;background:rgba(187,59,46,0.08);border:1px solid var(--rust);border-left:none;border-radius:0 4px 4px 0;padding:9px;text-align:center;"><div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;color:var(--rust);">MASTER</div><p style="font-size:10px;color:var(--text-dim);margin:3px 0 0;">BB + 2 yrs exp.</p></div>
+          </div>
+          <div style="margin-top:10px;">
+            <div class="table-container">
+              <table style="width:100%;min-width:220px;border-collapse:collapse;font-size:11.5px;">
+                <thead><tr style="background:var(--bg-panel-2);border-bottom:1px solid var(--line-strong);font-family:'Big Shoulders Display',sans-serif;font-size:10px;text-transform:uppercase;color:var(--text-dim);"><th style="padding:6px 8px;">Sigma</th><th style="padding:6px 8px;text-align:right;">DPMO</th><th style="padding:6px 8px;text-align:right;">% OK</th></tr></thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--line);"><td style="padding:5px 8px;font-weight:600;">1σ</td><td style="padding:5px 8px;text-align:right;color:var(--rust);">691,462</td><td style="padding:5px 8px;text-align:right;">30.9%</td></tr>
+                  <tr style="border-bottom:1px solid var(--line);"><td style="padding:5px 8px;font-weight:600;">3σ</td><td style="padding:5px 8px;text-align:right;color:var(--orange);">66,807</td><td style="padding:5px 8px;text-align:right;">93.3%</td></tr>
+                  <tr style="border-bottom:1px solid var(--line);"><td style="padding:5px 8px;font-weight:600;">4σ</td><td style="padding:5px 8px;text-align:right;color:var(--orange);">6,210</td><td style="padding:5px 8px;text-align:right;">99.4%</td></tr>
+                  <tr><td style="padding:5px 8px;font-weight:600;color:var(--orange);">6σ</td><td style="padding:5px 8px;text-align:right;color:var(--green);font-weight:700;">3.4</td><td style="padding:5px 8px;text-align:right;color:var(--green);font-weight:700;">99.99966%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-
-        <!-- P System -->
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--orange);">
-          <h3 class="card-title" style="color:var(--orange);margin-bottom:4px;">Periodic Review System</h3>
-          <div class="takt-status ok" style="margin-bottom:12px;color:var(--orange);border-color:rgba(226,87,28,0.35);background:rgba(226,87,28,0.08);display:inline-block;">p System — Time Triggered</div>
-          <svg viewBox="0 0 280 110" style="width:100%;display:block;margin-bottom:12px;">
-            <line x1="20" y1="90" x2="260" y2="90" stroke="var(--line-strong)" stroke-width="1"/>
-            <line x1="20" y1="10" x2="20" y2="90" stroke="var(--line-strong)" stroke-width="1"/>
-            <polyline points="20,25 80,55 80,25 160,55 160,25 240,55" fill="none" stroke="var(--orange)" stroke-width="2"/>
-            <line x1="80" y1="10" x2="80" y2="90" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>
-            <line x1="160" y1="10" x2="160" y2="90" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>
-            <line x1="240" y1="10" x2="240" y2="90" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,3"/>
-            <line x1="20" y1="25" x2="260" y2="25" stroke="var(--green)" stroke-width="1" stroke-dasharray="4,3"/>
-            <text x="262" y="28" font-size="8" fill="var(--green)" font-family="IBM Plex Mono,monospace">OUL</text>
-            <text x="130" y="105" font-size="8" fill="var(--text-faint)" font-family="IBM Plex Mono,monospace" text-anchor="middle">Fixed Period T →</text>
-          </svg>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
-            <li style="font-size:12px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">How often:</strong> Inventory tracked at fixed intervals (e.g., weekly)</li>
-            <li style="font-size:12px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">When to order:</strong> At every review period — Fixed Time Period model</li>
-            <li style="font-size:12px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">How much:</strong> Order quantity based on predetermined Order Up Level (OUL) minus current stock</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ==================== TAB 9: EOQ ==================== -->
-<div id="eoq" class="tab-panel">
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span class="kicker-num">5</span></div>
-      <h2>Economic Order Quantity (EOQ)</h2>
-      <p class="lead">EOQ is the ideal order quantity a company should purchase to minimise total inventory costs — ordering, receiving, and holding.</p>
-
-      <!-- Formula card -->
-      <div class="dash-card reveal" style="padding:20px;margin-bottom:24px;background:var(--bg-panel-2);border:1px solid var(--line-strong);text-align:center;">
-        <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-dim);margin-bottom:10px;">EOQ Formula</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;color:var(--orange);letter-spacing:0.02em;">EOQ = √( 2 × D × S / H )</div>
-        <div style="margin-top:12px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
-          <span style="font-size:12px;color:var(--text-dim);"><b style="color:var(--text);">D</b> = Annual Demand</span>
-          <span style="font-size:12px;color:var(--text-dim);"><b style="color:var(--text);">S</b> = Cost per Order</span>
-          <span style="font-size:12px;color:var(--text-dim);"><b style="color:var(--text);">H</b> = Annual Holding Cost per Unit</span>
-        </div>
-      </div>
-
-      <div class="dash-card reveal" style="padding:16px;">
-        <h3 class="card-title" style="margin-bottom:10px;">Key Points</h3>
-        <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;">
-          <li style="color:var(--text-dim);font-size:13px;line-height:1.5;">EOQ minimises total costs of ordering, receiving, and holding inventory.</li>
-          <li style="color:var(--text-dim);font-size:13px;line-height:1.5;">Best applied where demand, ordering costs, and holding costs remain <strong style="color:var(--text);">constant over time</strong>.</li>
-          <li style="color:var(--text-dim);font-size:13px;line-height:1.5;"><strong style="color:var(--rust);">Limitation:</strong> assumes demand for the company's products is constant — not realistic for seasonal or trend-driven goods.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ==================== TAB 10: ABC INVENTORY ==================== -->
-<div id="abc-inventory" class="tab-panel">
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span class="kicker-num">6</span></div>
-      <h2>ABC Inventory Management</h2>
-      <p class="lead">Based on the Pareto Principle — 80% of rupee value comes from 20% of inventory items. Classify and manage each class differently.</p>
-
-      <div class="dash-card reveal" style="padding:16px;margin-bottom:20px;">
-        <h3 class="card-title" style="margin-bottom:12px;">Mobile Phone Mfg Example — Annual Demand: 1 Lakh Phones</h3>
-        <div class="table-container">
-          <table style="width:100%;min-width:600px;border-collapse:collapse;font-size:12.5px;">
-            <thead>
-              <tr style="background:var(--bg-panel-2);border-bottom:1px solid var(--line-strong);font-family:'Big Shoulders Display',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);">
-                <th style="padding:8px 12px;">Inventory</th>
-                <th style="padding:8px 12px;text-align:right;">Units/Phone</th>
-                <th style="padding:8px 12px;text-align:right;">Cost/Unit (₹)</th>
-                <th style="padding:8px 12px;text-align:right;">Cost/Phone (₹)</th>
-                <th style="padding:8px 12px;text-align:right;">Annual ₹ Volume</th>
-                <th style="padding:8px 12px;text-align:center;">Class</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom:1px solid var(--line);background:rgba(226,87,28,0.04);">
-                <td style="padding:8px 12px;font-weight:600;">Screen</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">1</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">4,000</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">4,000</td>
-                <td style="padding:8px 12px;text-align:right;font-weight:700;color:var(--orange);">₹40 Cr</td>
-                <td style="padding:8px 12px;text-align:center;"><span style="background:rgba(226,87,28,0.15);color:var(--orange);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:14px;border-radius:3px;padding:2px 8px;">A</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--line);background:rgba(226,87,28,0.04);">
-                <td style="padding:8px 12px;font-weight:600;">Motherboard</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">1</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">3,500</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">3,500</td>
-                <td style="padding:8px 12px;text-align:right;font-weight:700;color:var(--orange);">₹35 Cr</td>
-                <td style="padding:8px 12px;text-align:center;"><span style="background:rgba(226,87,28,0.15);color:var(--orange);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:14px;border-radius:3px;padding:2px 8px;">A</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--line);background:rgba(46,92,138,0.03);">
-                <td style="padding:8px 12px;font-weight:600;">Camera</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">4</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">500</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">2,000</td>
-                <td style="padding:8px 12px;text-align:right;font-weight:700;color:var(--blueprint);">₹20 Cr</td>
-                <td style="padding:8px 12px;text-align:center;"><span style="background:rgba(46,92,138,0.15);color:var(--blueprint);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:14px;border-radius:3px;padding:2px 8px;">B</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--line);background:rgba(46,92,138,0.03);">
-                <td style="padding:8px 12px;font-weight:600;">Body</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">1</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">1,500</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">1,500</td>
-                <td style="padding:8px 12px;text-align:right;font-weight:700;color:var(--blueprint);">₹15 Cr</td>
-                <td style="padding:8px 12px;text-align:center;"><span style="background:rgba(46,92,138,0.15);color:var(--blueprint);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:14px;border-radius:3px;padding:2px 8px;">B</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--line);">
-                <td style="padding:8px 12px;font-weight:600;">Speaker</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">2</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">500</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">1,000</td>
-                <td style="padding:8px 12px;text-align:right;font-weight:700;color:var(--text-dim);">₹10 Cr</td>
-                <td style="padding:8px 12px;text-align:center;"><span style="background:var(--bg-panel-2);color:var(--text-dim);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:14px;border-radius:3px;padding:2px 8px;">C</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--line);">
-                <td style="padding:8px 12px;font-weight:600;">Battery</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">1</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">400</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">400</td>
-                <td style="padding:8px 12px;text-align:right;font-weight:700;color:var(--text-dim);">₹4 Cr</td>
-                <td style="padding:8px 12px;text-align:center;"><span style="background:var(--bg-panel-2);color:var(--text-dim);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:14px;border-radius:3px;padding:2px 8px;">C</span></td>
-              </tr>
-              <tr>
-                <td style="padding:8px 12px;font-weight:600;">Screws</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">50</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">1</td>
-                <td style="padding:8px 12px;text-align:right;color:var(--text-dim);">50</td>
-                <td style="padding:8px 12px;text-align:right;font-weight:700;color:var(--text-dim);">₹0.5 Cr</td>
-                <td style="padding:8px 12px;text-align:center;"><span style="background:var(--bg-panel-2);color:var(--text-dim);font-weight:900;font-family:'Big Shoulders Display',sans-serif;font-size:14px;border-radius:3px;padding:2px 8px;">C</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;" class="reveal">
-        <div class="dash-card" style="padding:14px;border-top:3px solid var(--orange);text-align:center;">
-          <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:28px;color:var(--orange);">A</div>
-          <div style="font-size:11px;color:var(--text-dim);margin:4px 0;">Top 15% of items</div>
-          <div style="font-size:11px;font-weight:600;color:var(--text);">High ₹ Volume</div>
-          <div style="font-size:10px;color:var(--text-faint);margin-top:6px;">Review: <strong>Weekly</strong></div>
-        </div>
-        <div class="dash-card" style="padding:14px;border-top:3px solid var(--blueprint);text-align:center;">
-          <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:28px;color:var(--blueprint);">B</div>
-          <div style="font-size:11px;color:var(--text-dim);margin:4px 0;">Next 35% of items</div>
-          <div style="font-size:11px;font-weight:600;color:var(--text);">Moderate ₹ Volume</div>
-          <div style="font-size:10px;color:var(--text-faint);margin-top:6px;">Review: <strong>Biweekly</strong></div>
-        </div>
-        <div class="dash-card" style="padding:14px;border-top:3px solid var(--line-strong);text-align:center;">
-          <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:28px;color:var(--text-dim);">C</div>
-          <div style="font-size:11px;color:var(--text-dim);margin:4px 0;">Last 50% of items</div>
-          <div style="font-size:11px;font-weight:600;color:var(--text);">Low ₹ Volume</div>
-          <div style="font-size:10px;color:var(--text-faint);margin-top:6px;">Review: <strong>Monthly / Bimonthly</strong></div>
+        <div class="dash-card" style="padding:14px;">
+          <h3 class="card-title" style="margin-bottom:12px;">DMAIC vs DMADV</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--blueprint);margin-bottom:6px;">DMAIC — Existing Process</div>
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <div style="display:flex;gap:6px;align-items:center;"><div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div><span style="font-size:11.5px;">Define problem &amp; goals</span></div>
+                <div style="display:flex;gap:6px;align-items:center;"><div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">M</div><span style="font-size:11.5px;">Measure current performance</span></div>
+                <div style="display:flex;gap:6px;align-items:center;"><div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">A</div><span style="font-size:11.5px;">Analyze root causes</span></div>
+                <div style="display:flex;gap:6px;align-items:center;"><div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">I</div><span style="font-size:11.5px;">Improve — implement solutions</span></div>
+                <div style="display:flex;gap:6px;align-items:center;"><div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">C</div><span style="font-size:11.5px;">Control — standardise &amp; monitor</span></div>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--green);margin-bottom:6px;">DMADV — New Process</div>
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <div style="display:flex;gap:6px;align-items:center;"><div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div><span style="font-size:11.5px;">Define goals &amp; customer needs</span></div>
+                <div style="display:flex;gap:6px;align-items:center;"><div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">M</div><span style="font-size:11.5px;">Measure critical quality attributes</span></div>
+                <div style="display:flex;gap:6px;align-items:center;"><div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">A</div><span style="font-size:11.5px;">Analyze design alternatives</span></div>
+                <div style="display:flex;gap:6px;align-items:center;"><div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div><span style="font-size:11.5px;">Design detailed process</span></div>
+                <div style="display:flex;gap:6px;align-items:center;"><div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:11px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">V</div><span style="font-size:11.5px;">Verify — test &amp; validate</span></div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px;background:rgba(226,87,28,0.04);border:1px solid var(--orange);border-radius:4px;padding:10px;">
+            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;color:var(--orange);margin-bottom:4px;">LEAN + SIX SIGMA</div>
+            <p style="font-size:11.5px;color:var(--text-dim);margin:0;line-height:1.5;">Lean eliminates waste; Six Sigma reduces defects &amp; variation. Combined = faster, higher-quality, lower-cost processes. <em>"Efficiency is doing things right; effectiveness is doing the right things."</em></p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </div>
-
-<!-- ==================== TAB 11: TOYOTA PRODUCTION SYSTEM ==================== -->
-<div id="tps" class="tab-panel">
   <section class="block">
     <div class="wrap">
       <div class="kicker"><span class="kicker-num">7</span></div>
@@ -1950,292 +1968,10 @@
   </section>
 </div>
 
-<!-- ==================== TAB 12: JUST IN TIME ==================== -->
-<div id="jit" class="tab-panel">
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span class="kicker-num">8</span></div>
-      <h2>Just In Time (JIT)</h2>
-      <p class="lead">Supplying goods as close as possible to when they are actually needed — reducing inventory and freeing up capital.</p>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;" class="reveal">
-        <div class="dash-card" style="padding:16px;">
-          <h3 class="card-title" style="margin-bottom:10px;">How JIT Works</h3>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">Manufacturing:</strong> Parts and raw materials arrive just before they are added to the final product</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">Resellers:</strong> Goods arrive just before customer purchase — minimal stock on shelves</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">Benefit:</strong> Less inventory frees up cash for other investments</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">Kanban:</strong> Scheduling/signal system between production points (Pull system) — supports streamlining, efficiency, and quality</li>
-          </ul>
-        </div>
-        <div class="dash-card" style="padding:16px;">
-          <h3 class="card-title" style="margin-bottom:10px;">Success Factors</h3>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Steady, predictable production schedule</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">High-quality workmanship to avoid rework / scrap</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">No unplanned machine breakdowns</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Reliable, geographically close suppliers</li>
-          </ul>
-        </div>
-      </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="reveal">
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--green);">
-          <h3 class="card-title" style="color:var(--green);margin-bottom:10px;">✅ Advantages</h3>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Short production runs — easy product switching and customisation</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Reduced warehouse costs and space requirements</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Less capital tied up in raw material inventory</li>
-          </ul>
-        </div>
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--rust);">
-          <h3 class="card-title" style="color:var(--rust);margin-bottom:10px;">⚠️ Disadvantages</h3>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">High supply chain disruption risk — single supplier failure halts production</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">Example:</strong> Toyota's 1997 near-halt when a supplier fire stopped brake part deliveries</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Sudden demand spikes may not be met without buffer stock</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
 
-<!-- ==================== TAB 13: LEAN MANUFACTURING ==================== -->
-<div id="lean-mfg" class="tab-panel">
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span class="kicker-num">9</span></div>
-      <h2>Lean Manufacturing</h2>
-      <p class="lead">The core idea: eliminate all waste from the system so that every step adds value to the customer.</p>
 
-      <div class="dash-card reveal" style="padding:16px;margin-bottom:20px;">
-        <h3 class="card-title" style="margin-bottom:12px;">The 8 Wastes (DOWNTIME)</h3>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-          <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--rust);">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--rust);">D — Defects</div>
-            <p style="font-size:11.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Products not meeting specs; requires rework or scrap</p>
-          </div>
-          <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--orange);">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--orange);">O — Overproduction</div>
-            <p style="font-size:11.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Making more than needed, or earlier than needed</p>
-          </div>
-          <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--blueprint);">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--blueprint);">W — Waiting</div>
-            <p style="font-size:11.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Idle time when people or machines wait for the next step</p>
-          </div>
-          <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--green);">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--green);">N — Non-Used Talent</div>
-            <p style="font-size:11.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Underutilising employee skills, creativity, and knowledge</p>
-          </div>
-          <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--rust);">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--rust);">T — Transportation</div>
-            <p style="font-size:11.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Unnecessary movement of materials, parts, or products</p>
-          </div>
-          <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--orange);">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--orange);">I — Inventory</div>
-            <p style="font-size:11.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Excess raw material, WIP, or finished goods tying up capital</p>
-          </div>
-          <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--blueprint);">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--blueprint);">M — Motion</div>
-            <p style="font-size:11.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Unnecessary movement of people within a process</p>
-          </div>
-          <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--green);">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--green);">E — Extra-Processing</div>
-            <p style="font-size:11.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Doing more work than the customer requires or values</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="dash-card reveal" style="padding:16px;">
-        <h3 class="card-title" style="margin-bottom:10px;">Common Lean Tools</h3>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <span style="background:var(--bg-panel-2);border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;letter-spacing:0.04em;">5S</span>
-          <span style="background:var(--bg-panel-2);border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;letter-spacing:0.04em;">Kaizen</span>
-          <span style="background:var(--bg-panel-2);border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;letter-spacing:0.04em;">Poka-Yoke</span>
-          <span style="background:var(--bg-panel-2);border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;letter-spacing:0.04em;">JIT Manufacturing</span>
-          <span style="background:var(--bg-panel-2);border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;letter-spacing:0.04em;">Kanban</span>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ==================== TAB 14: SIX SIGMA ==================== -->
-<div id="six-sigma" class="tab-panel">
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span class="kicker-num">10</span></div>
-      <h2>Six Sigma (6σ)</h2>
-      <p class="lead">Quality is a compulsion, not a choice. Six Sigma targets no more than <strong>3.4 defects per million opportunities</strong> — transforming quality from a cost into a competitive advantage.</p>
-
-      <!-- Belt Structure -->
-      <div class="dash-card reveal" style="padding:16px;margin-bottom:20px;">
-        <h3 class="card-title" style="margin-bottom:12px;">Certification Structure</h3>
-        <div style="display:flex;align-items:stretch;gap:0;flex-wrap:wrap;">
-          <div style="flex:1;min-width:120px;background:rgba(226,87,28,0.08);border:1px solid var(--orange);border-radius:4px 0 0 4px;padding:12px;text-align:center;">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;color:var(--orange);">YELLOW BELT</div>
-            <p style="font-size:10.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Aware of Six Sigma principles &amp; basics</p>
-          </div>
-          <div style="flex:1;min-width:120px;background:rgba(61,122,82,0.08);border:1px solid var(--green);border-left:none;padding:12px;text-align:center;">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;color:var(--green);">GREEN BELT</div>
-            <p style="font-size:10.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Uses DMAIC &amp; analytical tools on projects</p>
-          </div>
-          <div style="flex:1;min-width:120px;background:rgba(46,92,138,0.08);border:1px solid var(--blueprint);border-left:none;padding:12px;text-align:center;">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;color:var(--blueprint);">BLACK BELT</div>
-            <p style="font-size:10.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Full-time Six Sigma project leader</p>
-          </div>
-          <div style="flex:1;min-width:120px;background:rgba(187,59,46,0.08);border:1px solid var(--rust);border-left:none;border-radius:0 4px 4px 0;padding:12px;text-align:center;">
-            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;color:var(--rust);">MASTER BB</div>
-            <p style="font-size:10.5px;color:var(--text-dim);margin:4px 0 0;line-height:1.4;">Advises Black Belts; BB + 2 yrs exp.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sigma Table + Key Terms -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="reveal">
-        <div class="dash-card" style="padding:16px;">
-          <h3 class="card-title" style="margin-bottom:10px;">Sigma Performance Table</h3>
-          <div class="table-container">
-            <table style="width:100%;min-width:240px;border-collapse:collapse;font-size:12px;">
-              <thead>
-                <tr style="background:var(--bg-panel-2);border-bottom:1px solid var(--line-strong);font-family:'Big Shoulders Display',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);">
-                  <th style="padding:7px 10px;">Sigma</th>
-                  <th style="padding:7px 10px;text-align:right;">DPMO</th>
-                  <th style="padding:7px 10px;text-align:right;">% Successful</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom:1px solid var(--line);"><td style="padding:7px 10px;font-weight:600;">1σ</td><td style="padding:7px 10px;text-align:right;color:var(--rust);">691,462</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">30.9%</td></tr>
-                <tr style="border-bottom:1px solid var(--line);background:rgba(255,255,255,0.01);"><td style="padding:7px 10px;font-weight:600;">2σ</td><td style="padding:7px 10px;text-align:right;color:var(--rust);">308,538</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">69.1%</td></tr>
-                <tr style="border-bottom:1px solid var(--line);"><td style="padding:7px 10px;font-weight:600;">3σ</td><td style="padding:7px 10px;text-align:right;color:var(--orange);">66,807</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">93.3%</td></tr>
-                <tr style="border-bottom:1px solid var(--line);background:rgba(255,255,255,0.01);"><td style="padding:7px 10px;font-weight:600;">4σ</td><td style="padding:7px 10px;text-align:right;color:var(--orange);">6,210</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">99.4%</td></tr>
-                <tr style="border-bottom:1px solid var(--line);"><td style="padding:7px 10px;font-weight:600;">5σ</td><td style="padding:7px 10px;text-align:right;color:var(--green);">233</td><td style="padding:7px 10px;text-align:right;color:var(--text-dim);">99.98%</td></tr>
-                <tr><td style="padding:7px 10px;font-weight:600;color:var(--orange);">6σ</td><td style="padding:7px 10px;text-align:right;color:var(--green);font-weight:700;">3.4</td><td style="padding:7px 10px;text-align:right;color:var(--green);font-weight:700;">99.99966%</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="dash-card" style="padding:16px;">
-          <h3 class="card-title" style="margin-bottom:10px;">Key Concepts</h3>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;">
-              <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-dim);letter-spacing:0.04em;margin-bottom:3px;">History</div>
-              <p style="font-size:12px;color:var(--text-dim);margin:0;line-height:1.5;">Motorola launched 1987; GE adopted 1996 (Jack Welch). Indian adopters: Tata Steel, Asian Paints, L&amp;T Switch Gear.</p>
-            </div>
-            <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;">
-              <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-dim);letter-spacing:0.04em;margin-bottom:3px;">Key Terms</div>
-              <p style="font-size:12px;color:var(--text-dim);margin:0;line-height:1.5;"><strong style="color:var(--text);">Defect</strong> — anything outside customer requirement/spec.<br><strong style="color:var(--text);">Defective</strong> — item with ≥1 defect.</p>
-            </div>
-            <div style="background:var(--bg-panel-2);border-radius:4px;padding:10px 12px;">
-              <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-dim);letter-spacing:0.04em;margin-bottom:3px;">Control Limits</div>
-              <p style="font-size:12px;color:var(--text-dim);margin:0;line-height:1.5;"><strong style="color:var(--text);">UCL / LCL</strong> — process control limits (statistical).<br><strong style="color:var(--text);">USL / LSL</strong> — specification limits (customer-defined).</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ==================== TAB 15: PROBLEM SOLVING ==================== -->
-<div id="problem-solving" class="tab-panel">
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span class="kicker-num">11</span></div>
-      <h2>Problem Solving Methods</h2>
-      <p class="lead">Six Sigma provides two structured frameworks — DMAIC for improving existing processes, and DMADV for designing new ones from scratch.</p>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="reveal">
-        <!-- DMAIC -->
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--blueprint);">
-          <h3 class="card-title" style="color:var(--blueprint);margin-bottom:4px;">DMAIC</h3>
-          <div style="font-size:11px;color:var(--text-faint);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.04em;">For Existing Processes</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div>
-              <div><strong style="font-size:12px;">Define</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Problem, goals, and customer requirements</p></div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">M</div>
-              <div><strong style="font-size:12px;">Measure</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Current performance and baseline data</p></div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">A</div>
-              <div><strong style="font-size:12px;">Analyze</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Root causes of the performance gap</p></div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">I</div>
-              <div><strong style="font-size:12px;">Improve</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Implement and test solutions</p></div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">C</div>
-              <div><strong style="font-size:12px;">Control</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Standardise, monitor, and sustain gains</p></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DMADV -->
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--green);">
-          <h3 class="card-title" style="color:var(--green);margin-bottom:4px;">DMADV</h3>
-          <div style="font-size:11px;color:var(--text-faint);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.04em;">For New Processes / Products</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div>
-              <div><strong style="font-size:12px;">Define</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Goals aligned to customer and business needs</p></div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">M</div>
-              <div><strong style="font-size:12px;">Measure</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Critical quality attributes and performance metrics</p></div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">A</div>
-              <div><strong style="font-size:12px;">Analyze</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Design alternatives and feasibility</p></div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div>
-              <div><strong style="font-size:12px;">Design</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Detailed process / product design</p></div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;">
-              <div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:13px;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">V</div>
-              <div><strong style="font-size:12px;">Verify</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Test and validate design against requirements</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ==================== TAB 16: LEAN SIX SIGMA ==================== -->
-<div id="lean-six-sigma" class="tab-panel">
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span class="kicker-num">12</span></div>
-      <h2>Lean Six Sigma</h2>
-      <p class="lead">"Efficiency is doing things right, while effectiveness is doing the right things."</p>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px;" class="reveal">
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--blueprint);text-align:center;">
-          <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:18px;color:var(--blueprint);margin-bottom:8px;">LEAN</div>
-          <p style="font-size:12.5px;color:var(--text-dim);margin:0;line-height:1.5;">Process improvement focused on eliminating waste and increasing customer value</p>
-        </div>
-        <div class="dash-card" style="padding:16px;background:var(--bg-panel-2);border:1px solid var(--orange);text-align:center;display:flex;align-items:center;justify-content:center;">
-          <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:28px;color:var(--orange);">+</div>
-        </div>
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--green);text-align:center;">
-          <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:18px;color:var(--green);margin-bottom:8px;">SIX SIGMA</div>
-          <p style="font-size:12.5px;color:var(--text-dim);margin:0;line-height:1.5;">Data-driven methodology to reduce defects and variability in any process</p>
-        </div>
-      </div>
-
-      <div class="dash-card reveal" style="padding:20px;text-align:center;border:1px solid var(--orange);background:rgba(226,87,28,0.04);">
-        <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:22px;letter-spacing:0.04em;color:var(--orange);">LEAN + SIX SIGMA</div>
-        <p style="font-size:13px;color:var(--text-dim);margin:10px 0 0;line-height:1.6;">Combines waste elimination (Lean) with defect reduction and variation control (Six Sigma) to deliver <strong style="color:var(--text);">faster, higher-quality, lower-cost</strong> processes — creating maximum value for the customer.</p>
-      </div>
-    </div>
-  </section>
-</div>
 
 <!-- ==================== TAB 17: BULLWHIP EFFECT ==================== -->
 <div id="bullwhip" class="tab-panel">
@@ -2302,169 +2038,9 @@
   </section>
 </div>
 
-<!-- ==================== TAB 18: PROJECT MANAGEMENT ==================== -->
-<div id="project-mgmt" class="tab-panel">
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span class="kicker-num">14</span></div>
-      <h2>Project Management</h2>
-      <p class="lead">"A project is a temporary endeavour undertaken to create a unique product, service, or result." — PMI. Project management = applying knowledge, skills, tools &amp; techniques to meet project requirements.</p>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;" class="reveal">
-        <div class="dash-card" style="padding:16px;">
-          <h3 class="card-title" style="margin-bottom:10px;">Defining Characteristics</h3>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">Temporary:</strong> Defined beginning and end, defined scope and resources</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">Unique:</strong> Not a routine operation — specific activities for a singular goal</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--text);">Examples:</strong> Software development for a business process; construction of a bridge; launching a new product</li>
-          </ul>
-        </div>
-        <!-- Golden Triangle -->
-        <div class="dash-card" style="padding:16px;">
-          <h3 class="card-title" style="margin-bottom:10px;">The Golden Triangle</h3>
-          <svg viewBox="0 0 220 130" style="width:100%;display:block;margin-bottom:8px;">
-            <polygon points="110,10 10,120 210,120" fill="none" stroke="var(--orange)" stroke-width="2"/>
-            <text x="110" y="8" font-size="9" font-family="'Big Shoulders Display',sans-serif" font-weight="900" text-anchor="middle" fill="var(--orange)">QUALITY</text>
-            <text x="10" y="130" font-size="9" font-family="'Big Shoulders Display',sans-serif" font-weight="900" text-anchor="middle" fill="var(--blueprint)">SCOPE</text>
-            <text x="210" y="130" font-size="9" font-family="'Big Shoulders Display',sans-serif" font-weight="900" text-anchor="middle" fill="var(--green)">COST</text>
-            <text x="110" y="75" font-size="9" font-family="IBM Plex Mono,monospace" text-anchor="middle" fill="var(--text-dim)">SCHEDULE</text>
-          </svg>
-          <p style="font-size:11.5px;color:var(--text-dim);margin:0;line-height:1.4;">Each corner trades off against the others — e.g., compressing schedule adds pressure on scope, quality, and cost.</p>
-        </div>
-      </div>
 
-      <!-- 5 Stages -->
-      <div class="dash-card reveal" style="padding:16px;">
-        <h3 class="card-title" style="margin-bottom:14px;">5 Building Blocks of Project Management</h3>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="display:flex;gap:12px;align-items:flex-start;">
-            <div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;border-radius:3px;padding:3px 8px;flex-shrink:0;min-width:22px;text-align:center;">1</div>
-            <div><strong style="font-size:12.5px;">Conception &amp; Initiation</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Project Charter, Project Initiation Document</p></div>
-          </div>
-          <div style="display:flex;gap:12px;align-items:flex-start;">
-            <div style="background:var(--blueprint);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;border-radius:3px;padding:3px 8px;flex-shrink:0;min-width:22px;text-align:center;">2</div>
-            <div><strong style="font-size:12.5px;">Definition &amp; Planning</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Scope &amp; Budget, Work Breakdown Schedule, Gantt Chart, Communication Plan, Risk Management</p></div>
-          </div>
-          <div style="display:flex;gap:12px;align-items:flex-start;">
-            <div style="background:var(--orange);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;border-radius:3px;padding:3px 8px;flex-shrink:0;min-width:22px;text-align:center;">3</div>
-            <div><strong style="font-size:12.5px;">Launch / Execution</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Status &amp; Tracking, KPIs, Quality control, Forecasts</p></div>
-          </div>
-          <div style="display:flex;gap:12px;align-items:flex-start;">
-            <div style="background:var(--orange);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;border-radius:3px;padding:3px 8px;flex-shrink:0;min-width:22px;text-align:center;">4</div>
-            <div><strong style="font-size:12.5px;">Performance &amp; Control</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Objectives, Quality Deliverables, Effort &amp; Cost Tracking, Performance review</p></div>
-          </div>
-          <div style="display:flex;gap:12px;align-items:flex-start;">
-            <div style="background:var(--green);color:#fff;font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:12px;border-radius:3px;padding:3px 8px;flex-shrink:0;min-width:22px;text-align:center;">5</div>
-            <div><strong style="font-size:12.5px;">Project Close</strong><p style="font-size:11.5px;color:var(--text-dim);margin:2px 0 0;line-height:1.4;">Post-Mortem, Project Punchlist, Final Reporting &amp; Documentation</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
 
-<!-- ==================== TAB 19: INTERVIEW TIPS ==================== -->
-<div id="interview-tips" class="tab-panel">
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span class="kicker-num">15</span></div>
-      <h2>Interview Questions &amp; Preparation</h2>
-      <p class="lead">Operations, Supply Chain, and Logistics interviews are largely behavioural and situational. Prepare each story with the STAR framework (Situation, Task, Action, Result).</p>
-
-      <div style="display:flex;flex-direction:column;gap:16px;" class="reveal">
-        <div class="dash-card" style="padding:16px;">
-          <h3 class="card-title" style="margin-bottom:10px;">About Yourself / Why Operations?</h3>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px;">
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Demonstrate profile fit — connect your background to the domain (work-ex, internships, projects)</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Highlight transferable skills: problem solving, communication, stakeholder management, delegation, resilience, agility, handling pressure, seeing the bigger picture</li>
-          </ul>
-        </div>
-
-        <div class="dash-card" style="padding:16px;">
-          <h3 class="card-title" style="margin-bottom:10px;">Why This Company?</h3>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px;">
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Research the company and role deeply before the interview</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Speak about reputation, industry prospects, personal priorities, and job satisfaction</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Reference recent company news, initiatives, or activities to demonstrate genuine interest</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Express whether you prefer a dynamic start-up vs stable corporation and why it fits</li>
-          </ul>
-        </div>
-
-        <div class="dash-card" style="padding:16px;">
-          <h3 class="card-title" style="margin-bottom:10px;">Behavioural / Situational Questions</h3>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-            <div>
-              <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-dim);margin-bottom:6px;">Common Themes</div>
-              <ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:5px;">
-                <li style="font-size:12px;color:var(--text-dim);line-height:1.4;">Conflict resolution with a peer or client</li>
-                <li style="font-size:12px;color:var(--text-dim);line-height:1.4;">Disagreeing with your manager — how did you handle it?</li>
-                <li style="font-size:12px;color:var(--text-dim);line-height:1.4;">Biggest achievement and proudest moment</li>
-                <li style="font-size:12px;color:var(--text-dim);line-height:1.4;">A failure or setback — what did you learn?</li>
-                <li style="font-size:12px;color:var(--text-dim);line-height:1.4;">Managing competing priorities under time pressure</li>
-              </ul>
-            </div>
-            <div>
-              <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-dim);margin-bottom:6px;">STAR Framework</div>
-              <div style="display:flex;flex-direction:column;gap:6px;">
-                <div style="background:var(--bg-panel-2);border-radius:3px;padding:6px 10px;font-size:11.5px;"><strong style="color:var(--orange);">S</strong> — Situation</div>
-                <div style="background:var(--bg-panel-2);border-radius:3px;padding:6px 10px;font-size:11.5px;"><strong style="color:var(--orange);">T</strong> — Task</div>
-                <div style="background:var(--bg-panel-2);border-radius:3px;padding:6px 10px;font-size:11.5px;"><strong style="color:var(--orange);">A</strong> — Action</div>
-                <div style="background:var(--bg-panel-2);border-radius:3px;padding:6px 10px;font-size:11.5px;"><strong style="color:var(--orange);">R</strong> — Result</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="dash-card" style="padding:16px;">
-          <h3 class="card-title" style="margin-bottom:10px;">Guestimates &amp; Cases</h3>
-          <p style="font-size:12.5px;color:var(--text-dim);margin:0;line-height:1.6;">Sometimes tied to prior experience or field of study. Structure your approach, state assumptions clearly, and walk the interviewer through your reasoning. Prepare thoroughly from the NPAD before your interview.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ==================== TAB 20: GENERAL TIPS ==================== -->
-<div id="general-tips" class="tab-panel">
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span class="kicker-num">16</span></div>
-      <h2>General Tips</h2>
-      <p class="lead">Walk in prepared, authentic, and composed. The interview is as much about how you think as what you know.</p>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;" class="reveal">
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--green);">
-          <h3 class="card-title" style="margin-bottom:10px;">Before the Interview</h3>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Read about the company, JD, and the specific role in detail</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Prepare at least one thoughtful question to ask the interviewer at the end</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Know your resume cold — be ready to expand on every bullet point</li>
-          </ul>
-        </div>
-        <div class="dash-card" style="padding:16px;border-top:3px solid var(--blueprint);">
-          <h3 class="card-title" style="margin-bottom:10px;">During the Interview</h3>
-          <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--green);">Stay positive and confident</strong> — be yourself; authenticity matters</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;"><strong style="color:var(--green);">Stay calm and composed</strong> — take a breath before answering complex questions</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">No "beating around the bush" — be direct and transparent; if you don't know something, say so</li>
-            <li style="font-size:12.5px;color:var(--text-dim);line-height:1.5;">Be <strong style="color:var(--text);">assertive, never aggressive</strong></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Quote + Closing -->
-      <div class="dash-card reveal" style="padding:24px;text-align:center;border:1px solid var(--orange);background:rgba(226,87,28,0.04);">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.6;color:var(--text);font-style:italic;margin-bottom:12px;">"Every situation, no matter how complex it initially looks, is exceedingly simple."</div>
-        <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;">— Eliyahu Goldratt, The Goal</div>
-      </div>
-
-      <div style="margin-top:28px;text-align:center;" class="reveal">
-        <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:40px;letter-spacing:0.06em;color:var(--orange);">ALL THE BEST! 🎯</div>
-        <p style="font-size:13px;color:var(--text-dim);margin-top:8px;">You've got this. Go crack it.</p>
-      </div>
-    </div>
-  </section>
-</div>
 
 <script>
 // ==================== TAB Switching Logic ====================
