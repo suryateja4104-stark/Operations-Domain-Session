@@ -1,0 +1,17 @@
+{
+  "name": "operations-study-guide",
+  "version": "1.0.0",
+  "description": "Production Time Metrics & Operations Study SPA",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "lint": "echo 'No linter configured for static HTML'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": ["operations", "analytics", "manufacturing", "study-guide"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  }
+}
